@@ -38,7 +38,11 @@ public class ActionBuilderUI : MonoBehaviour
     }
 
     public void DisplaySkills() {
-        skillLister.ListSkills(currentCombatant);
+        if(skillLister.gameObject.activeInHierarchy){
+            skillLister.ListSkills(currentCombatant);
+        }else{
+            Debug.LogWarning("SkillLister object not active. Enable the Skill Panel first.");
+        }
     }
 
     public void ClearSkills(){
@@ -57,5 +61,13 @@ public class ActionBuilderUI : MonoBehaviour
     public void EnqueueAction() {
         Action action = new Action(currentCombatant, currentSkill, possibleTargets);
         Debug.Log("Enqueued Action: " + action.ToString());
+    }
+
+    public void EnableSkillPanel(){
+        this.skillLister.gameObject.SetActive(true);
+    }
+
+    public void DisableSkillPanel(){
+        this.skillLister.gameObject.SetActive(false);
     }
 }

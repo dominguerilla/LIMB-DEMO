@@ -28,7 +28,7 @@ public class SkillButtonLister : MonoBehaviour
     Stack<SkillButton> buttonObjectPool;
     List<SkillButton> activeButtons;
 
-    void Start()
+    void Awake()
     {
         buttonObjectPool = new Stack<SkillButton>();
         activeButtons = new List<SkillButton>();

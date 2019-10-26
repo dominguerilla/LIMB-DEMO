@@ -30,12 +30,14 @@ public class ActionBuilderUITester : MonoBehaviour
         Debug.Log("ActionBuilderUI found in " + ui.gameObject);
     }
     
-    public void DisplaySkills(){
+    public void ShowSkills(){
         ui.currentCombatant = new Combatant(currentCombatant);
+        ui.EnableSkillPanel();
         ui.DisplaySkills();
     }
 
-    public void ClearSkills(){
+    public void HideSkills(){
         ui.ClearSkills();
+        ui.DisableSkillPanel();
     }
 }

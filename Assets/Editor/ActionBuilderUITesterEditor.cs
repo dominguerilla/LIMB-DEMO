@@ -13,12 +13,12 @@ public class ActionBuilderUITesterEditor : Editor
         base.OnInspectorGUI();
         ActionBuilderUITester tester = (ActionBuilderUITester)target;
 
-        if(GUILayout.Button("Display Skills")){
-            tester.DisplaySkills();
+        if(GUILayout.Button("Show Skills")){
+            tester.ShowSkills();
         }
 
-        if(GUILayout.Button("Clear Skills")){
-            tester.ClearSkills();
+        if(GUILayout.Button("Hide Skills")){
+            tester.HideSkills();
         }
     }
 }
