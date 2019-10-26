@@ -20,5 +20,13 @@ public class ActionBuilderUITesterEditor : Editor
         if(GUILayout.Button("Hide Skills")){
             tester.HideSkills();
         }
+
+        if(GUILayout.Button("Show Possible Targets")){
+            tester.ShowPossibleTargets();
+        }
+
+        if(GUILayout.Button("Hide Possible Targets")){
+            tester.HidePossibleTargets();
+        }
     }
 }

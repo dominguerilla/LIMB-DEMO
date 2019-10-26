@@ -68,12 +68,16 @@ public class SkillButtonLister : MonoBehaviour
     }
 
     public void Clear(){
-        foreach(SkillButton button in activeButtons){
-            button.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
-            button.gameObject.SetActive(false);
-            buttonObjectPool.Push(button);
+        if(activeButtons != null){
+            foreach(SkillButton button in activeButtons){
+                button.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
+                button.gameObject.SetActive(false);
+                buttonObjectPool.Push(button);
+            }
+            activeButtons.Clear();
+        }else{
+            Debug.LogWarning("activeButtons is null!");
         }
-        activeButtons.Clear();
     }
 
     SkillButton PopSkillButton(){

@@ -12,30 +12,17 @@ using UnityEngine.UI;
 public class CombatantsButton : MonoBehaviour
 {
     [SerializeField]
-    Skill skill;
+    Combatant[] combatants;
 
-    // Don't think this is the best way to do it...
-    // maybe inject this into SkillButton instead?
-    ActionBuilderUI ui;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        ui = GameObject.FindObjectOfType<ActionBuilderUI>();    
-    }
-
-    public void SetSkill(Skill skill){
-        this.skill = skill;
+    public void SetCombatants(params Combatant[] combatants){
+        this.combatants = combatants;
         Text text = GetComponentInChildren<Text>();
-        text.text = skill.actionName;
+        text.text = this.combatants[0].ToString();
     }
 
-    public Skill GetSkill(){
-        return this.skill;
+    public Combatant[] GetCombatants(){
+        return this.combatants;
     }
 
-    public void SetActionBuilderUISkill(){
-        ui.SelectSkill(skill);
-    }
 
 }

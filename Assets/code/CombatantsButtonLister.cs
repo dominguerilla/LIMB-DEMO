@@ -25,21 +25,21 @@ public class CombatantsButtonLister : MonoBehaviour
     [SerializeField]
     GameObject buttonPrefab;
 
-    List<Skill> currentSkills;
-    Stack<SkillButton> buttonObjectPool;
-    List<SkillButton> activeButtons;
+    List<Combatant> possibleTargets;
+    Stack<CombatantsButton> buttonObjectPool;
+    List<CombatantsButton> activeButtons;
 
-    void Start()
+    void Awake()
     {
-        buttonObjectPool = new Stack<SkillButton>();
-        activeButtons = new List<SkillButton>();
+        buttonObjectPool = new Stack<CombatantsButton>();
+        activeButtons = new List<CombatantsButton>();
         for(int i = 0; i < MAX_BUTTON_NUM; i++){
             GameObject button = GameObject.Instantiate<GameObject>(buttonPrefab);
             button.transform.SetParent(this.transform);
 
-            SkillButton objButton = button.GetComponent<SkillButton>();
+            CombatantsButton objButton = button.GetComponent<CombatantsButton>();
             if(!objButton){
-                Debug.LogError("No SelectionButton component found in skillButtonPrefab.");
+                Debug.LogError("No CombatantsButton component found in buttonPrefab.");
                 return;
             }
             objButton.gameObject.SetActive(false);
@@ -47,21 +47,20 @@ public class CombatantsButtonLister : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Creates Buttons for the first four skills that the Combatant has.
-    /// </summary>
-    /// <param name="combatant"></param>
-    public void ListSkills(Combatant combatant){
-        currentSkills = combatant.GetSkills();
-        int skillNum = Mathf.Min(MAX_BUTTON_NUM, currentSkills.Count);
+    public void ListPossibleTargets(Skill skill, Combatant user, Combatant[] alliedParty, Combatant[] otherParty){
+        throw new System.Exception("Not implemented!");
+        int skillNum = Mathf.Min(MAX_BUTTON_NUM, possibleTargets.Count);
         
         for(int i = 0; i < skillNum; i++){
-            SkillButton skillButton = PopSkillButton();
-            if(skillButton){
-                skillButton.SetSkill(currentSkills[i]);
-                Button buttonComponent = skillButton.gameObject.GetComponent<Button>();
-                buttonComponent.onClick.AddListener(skillButton.SetActionBuilderUISkill);
-                skillButton.gameObject.SetActive(true);
+            CombatantsButton combatantsButton = PopSkillButton();
+            if(combatantsButton){
+                Debug.Log("CombatantsButton found!");
+                /*
+                combatantsButton.SetCombatants(possibleTargets[i]);
+                Button buttonComponent = combatantsButton.gameObject.GetComponent<Button>();
+                buttonComponent.onClick.AddListener(combatantsButton.SetActionBuilderUISkill);
+                combatantsButton.gameObject.SetActive(true);
+                */
             }else{
                 Debug.LogError("Out of SkillButtons from pool!");
             }
@@ -69,16 +68,20 @@ public class CombatantsButtonLister : MonoBehaviour
     }
 
     public void Clear(){
-        foreach(SkillButton button in activeButtons){
-            button.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
-            button.gameObject.SetActive(false);
-            buttonObjectPool.Push(button);
+        if(activeButtons != null){
+            foreach(CombatantsButton button in activeButtons){
+                button.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
+                button.gameObject.SetActive(false);
+                buttonObjectPool.Push(button);
+            }
+            activeButtons.Clear();
+        }else{
+            Debug.LogWarning("activeButtons is null!");
         }
-        activeButtons.Clear();
     }
 
-    SkillButton PopSkillButton(){
-        SkillButton button = buttonObjectPool.Pop();
+    CombatantsButton PopSkillButton(){
+        CombatantsButton button = buttonObjectPool.Pop();
         activeButtons.Add(button);
         return button;   
     }

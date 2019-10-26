@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 using LIMB;
@@ -28,10 +29,10 @@ public class ActionBuilderUI : MonoBehaviour
 
     [SerializeField]
     SkillButtonLister skillLister;
-    /*
+    
     [SerializeField]
-    TargetListerUI targetLister;
-    */
+    CombatantsButtonLister targetLister;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -53,11 +54,6 @@ public class ActionBuilderUI : MonoBehaviour
         this.currentSkill = skill;
     }
 
-    /*
-    public void DisplayTargets() {
-        targetLister.ListTargets(currentSkill);
-    }
-    */
     public void EnqueueAction() {
         Action action = new Action(currentCombatant, currentSkill, possibleTargets);
         Debug.Log("Enqueued Action: " + action.ToString());
@@ -70,4 +66,32 @@ public class ActionBuilderUI : MonoBehaviour
     public void DisableSkillPanel(){
         this.skillLister.gameObject.SetActive(false);
     }
+
+    public void EnablePossibleTargetsPanel(){
+        this.targetLister.gameObject.SetActive(true);
+    }
+
+    public void DisablePossibleTargetsPanel(){
+        this.targetLister.gameObject.SetActive(false);
+    }
+
+    public void DisplayPossibleTargets(){
+        (Combatant[] lParty, Combatant[] rParty) = Locator.GetCombatants();
+        if(lParty == null || rParty == null){
+            Debug.LogError("No BattleManager set in Locator!");
+            return;
+        }
+        if(lParty.Contains(this.currentCombatant)){
+            this.targetLister.ListPossibleTargets(this.currentSkill, this.currentCombatant, lParty, rParty);
+        }else if (rParty.Contains(this.currentCombatant)){
+            this.targetLister.ListPossibleTargets(this.currentSkill, this.currentCombatant, rParty, lParty);
+        }else{
+            Debug.LogError(string.Format("Combatant {0} is not in either party!",this.currentCombatant));
+        }
+    }
+
+    public void ClearPossibleTargets(){
+        this.targetLister.Clear();
+    }
+
 }

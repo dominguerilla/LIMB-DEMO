@@ -40,4 +40,18 @@ public class ActionBuilderUITester : MonoBehaviour
         ui.ClearSkills();
         ui.DisableSkillPanel();
     }
+
+    public void ShowPossibleTargets(){
+        if(currentSkill != null){
+            ui.EnablePossibleTargetsPanel();
+            ui.DisplayPossibleTargets();
+        }else{
+            Debug.LogError("No current Skill set!");
+        }
+    }
+
+    public void HidePossibleTargets(){
+        ui.ClearPossibleTargets();
+        ui.DisablePossibleTargetsPanel();
+    }
 }
