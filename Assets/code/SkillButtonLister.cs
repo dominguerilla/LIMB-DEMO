@@ -9,7 +9,7 @@ using LIMB;
 /// <summary>
 /// Populates a UI Panel with UI Buttons representing an object.
 /// </summary>
-public class ButtonLister : MonoBehaviour
+public class SkillButtonLister : MonoBehaviour
 {
     ///
     /// I'm thinking of showing only 4 buttons at a time.
@@ -25,18 +25,18 @@ public class ButtonLister : MonoBehaviour
     GameObject buttonPrefab;
 
     List<Skill> currentSkills;
-    Stack<SelectionButton> buttonObjectPool;
-    List<SelectionButton> activeButtons;
+    Stack<SkillButton> buttonObjectPool;
+    List<SkillButton> activeButtons;
 
     void Start()
     {
-        buttonObjectPool = new Stack<SelectionButton>();
-        activeButtons = new List<SelectionButton>();
+        buttonObjectPool = new Stack<SkillButton>();
+        activeButtons = new List<SkillButton>();
         for(int i = 0; i < MAX_BUTTON_NUM; i++){
             GameObject button = GameObject.Instantiate<GameObject>(buttonPrefab);
             button.transform.SetParent(this.transform);
 
-            SelectionButton objButton = button.GetComponent<SelectionButton>();
+            SkillButton objButton = button.GetComponent<SkillButton>();
             if(!objButton){
                 Debug.LogError("No SelectionButton component found in skillButtonPrefab.");
                 return;
@@ -55,7 +55,7 @@ public class ButtonLister : MonoBehaviour
         int skillNum = Mathf.Min(MAX_BUTTON_NUM, currentSkills.Count);
         
         for(int i = 0; i < skillNum; i++){
-            SelectionButton skillButton = PopSkillButton();
+            SkillButton skillButton = PopSkillButton();
             if(skillButton){
                 skillButton.SetSkill(currentSkills[i]);
                 Button buttonComponent = skillButton.gameObject.GetComponent<Button>();
@@ -68,7 +68,7 @@ public class ButtonLister : MonoBehaviour
     }
 
     public void Clear(){
-        foreach(SelectionButton button in activeButtons){
+        foreach(SkillButton button in activeButtons){
             button.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
             button.gameObject.SetActive(false);
             buttonObjectPool.Push(button);
@@ -76,8 +76,8 @@ public class ButtonLister : MonoBehaviour
         activeButtons.Clear();
     }
 
-    SelectionButton PopSkillButton(){
-        SelectionButton button = buttonObjectPool.Pop();
+    SkillButton PopSkillButton(){
+        SkillButton button = buttonObjectPool.Pop();
         activeButtons.Add(button);
         return button;   
     }

@@ -4,7 +4,12 @@ using UnityEngine;
 
 using LIMB;
 using UnityEngine.UI;
-public class SelectionButton : MonoBehaviour
+
+/// <summary>
+/// Represents one or more combatants in the UI.
+/// </summary>
+/// <notes>TODO: DEFINITE duplication of SkillButton.cs</notes>
+public class CombatantsButton : MonoBehaviour
 {
     [SerializeField]
     Skill skill;
@@ -17,12 +22,6 @@ public class SelectionButton : MonoBehaviour
     void Start()
     {
         ui = GameObject.FindObjectOfType<ActionBuilderUI>();    
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void SetSkill(Skill skill){

@@ -24,10 +24,10 @@ public class ActionBuilderUI : MonoBehaviour
     /// The UI will decide which Combatant the Action will target.
     /// This should be a Combatant that the currentSkill is able to target.
     /// </summary>
-    public Combatant currentTarget;
+    public Combatant possibleTargets;
 
     [SerializeField]
-    ButtonLister skillLister;
+    SkillButtonLister skillLister;
     /*
     [SerializeField]
     TargetListerUI targetLister;
@@ -55,7 +55,7 @@ public class ActionBuilderUI : MonoBehaviour
     }
     */
     public void EnqueueAction() {
-        Action action = new Action(currentCombatant, currentSkill, currentTarget);
+        Action action = new Action(currentCombatant, currentSkill, possibleTargets);
         Debug.Log("Enqueued Action: " + action.ToString());
     }
 }
