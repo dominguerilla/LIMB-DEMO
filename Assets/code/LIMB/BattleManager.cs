@@ -94,10 +94,12 @@ public class BattleManager : MonoBehaviour {
     }
 
     public List<Combatant> GetLeftCombatants() {
+        if(!inBattle) Debug.LogError("Cannot get Left Combatants; not in battle!");
         return this.lCombatants;
     }
 
     public List<Combatant> GetRightCombatants() {
+        if(!inBattle) Debug.LogError("Cannot get Right Combatants; not in battle!");
         return this.rCombatants;
     }
     

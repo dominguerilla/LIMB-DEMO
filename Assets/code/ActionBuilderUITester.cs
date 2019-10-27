@@ -42,7 +42,7 @@ public class ActionBuilderUITester : MonoBehaviour
     }
 
     public void ShowPossibleTargets(){
-        if(currentSkill != null){
+        if(ui.currentSkill != null){
             ui.EnablePossibleTargetsPanel();
             ui.DisplayPossibleTargets();
         }else{
