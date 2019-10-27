@@ -75,8 +75,13 @@ public class ActionBuilderUI : MonoBehaviour
         this.targetLister.gameObject.SetActive(false);
     }
 
-    public void DisplayPossibleTargets(){
-        (Combatant[] lParty, Combatant[] rParty) = Locator.GetCombatants();
+    public void DisplayPossibleTargets(Combatant[] lParty = null, Combatant[] rParty = null){
+        if(this.currentSkill == null){
+            Debug.LogError("No current Skill set!");
+            return;
+        }
+        if(lParty == null || rParty == null)
+            (lParty, rParty) = Locator.GetCombatants();
         if(lParty == null || rParty == null){
             Debug.LogError("No BattleManager set in Locator!");
             return;
