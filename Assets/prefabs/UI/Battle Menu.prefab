@@ -306,6 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSkill: {fileID: 0}
   skillLister: {fileID: 2585852088381762481}
+  targetLister: {fileID: 2110889331}
 --- !u!1 &2585852088101604801
 GameObject:
   m_ObjectHideFlags: 0
