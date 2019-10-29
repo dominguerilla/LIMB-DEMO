@@ -48,21 +48,20 @@ public class CombatantsButtonLister : MonoBehaviour
     }
 
     public void ListPossibleTargets(Skill skill, Combatant user, Combatant[] alliedParty, Combatant[] otherParty){
-        throw new System.Exception("Not implemented!");
-        int skillNum = Mathf.Min(MAX_BUTTON_NUM, possibleTargets.Count);
+        //TODO: Check skill to populate possibleTargets
+        possibleTargets = new List<Combatant>(otherParty);
+
+        int targetNum = Mathf.Min(MAX_BUTTON_NUM, possibleTargets.Count);
         
-        for(int i = 0; i < skillNum; i++){
-            CombatantsButton combatantsButton = PopSkillButton();
+        for(int i = 0; i < targetNum; i++){
+            CombatantsButton combatantsButton = PopButton();
             if(combatantsButton){
-                Debug.Log("CombatantsButton found!");
-                /*
                 combatantsButton.SetCombatants(possibleTargets[i]);
                 Button buttonComponent = combatantsButton.gameObject.GetComponent<Button>();
-                buttonComponent.onClick.AddListener(combatantsButton.SetActionBuilderUISkill);
+                buttonComponent.onClick.AddListener(combatantsButton.SetButtonTarget);
                 combatantsButton.gameObject.SetActive(true);
-                */
             }else{
-                Debug.LogError("Out of SkillButtons from pool!");
+                Debug.LogError("Out of CombatantsButtons from pool!");
             }
         }
     }
@@ -80,7 +79,7 @@ public class CombatantsButtonLister : MonoBehaviour
         }
     }
 
-    CombatantsButton PopSkillButton(){
+    CombatantsButton PopButton(){
         CombatantsButton button = buttonObjectPool.Pop();
         activeButtons.Add(button);
         return button;   
