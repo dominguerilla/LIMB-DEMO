@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 using LIMB;
-
+using System;
 
 /// <summary>
 /// Populates a UI Panel with UI Buttons representing Combatants.
@@ -49,7 +49,14 @@ public class CombatantsButtonLister : MonoBehaviour
 
     public void ListPossibleTargets(Skill skill, Combatant user, Combatant[] alliedParty, Combatant[] otherParty){
         //TODO: Check skill to populate possibleTargets
-        possibleTargets = new List<Combatant>(otherParty);
+        Debug.Log(string.Format("{0} targetable: {1}", skill.name, Enum.GetName(typeof(Skill.TARGETABLE), skill.targetable)));
+        if(skill.targetable == Skill.TARGETABLE.ALLIES){
+            possibleTargets = new List<Combatant>(alliedParty);
+        }else if (skill.targetable == Skill.TARGETABLE.ENEMIES){
+            possibleTargets = new List<Combatant>(otherParty);
+        }else{
+            possibleTargets = new List<Combatant>(alliedParty.Concat<Combatant>(otherParty));
+        }
 
         int targetNum = Mathf.Min(MAX_BUTTON_NUM, possibleTargets.Count);
         
