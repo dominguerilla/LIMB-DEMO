@@ -60,17 +60,30 @@ public class CombatantsButtonLister : MonoBehaviour
 
         int targetNum = Mathf.Min(MAX_BUTTON_NUM, possibleTargets.Count);
         
-        for(int i = 0; i < targetNum; i++){
+        if(skill.targetType == Skill.TARGET_TYPE.SINGLE){
+            for(int i = 0; i < targetNum; i++){
+                CombatantsButton combatantsButton = PopButton();
+                if(combatantsButton){
+                    CreateButton(combatantsButton, possibleTargets[i]);
+                }else{
+                    Debug.LogError("Out of CombatantsButtons from pool!");
+                }
+            }
+        }else{
             CombatantsButton combatantsButton = PopButton();
             if(combatantsButton){
-                combatantsButton.SetCombatants(possibleTargets[i]);
-                Button buttonComponent = combatantsButton.gameObject.GetComponent<Button>();
-                buttonComponent.onClick.AddListener(combatantsButton.SetButtonTarget);
-                combatantsButton.gameObject.SetActive(true);
+                CreateButton(combatantsButton, possibleTargets.ToArray());
             }else{
                 Debug.LogError("Out of CombatantsButtons from pool!");
             }
         }
+    }
+
+    void CreateButton(CombatantsButton combatantsButton, params Combatant[] combatants){
+        combatantsButton.SetCombatants(combatants);
+        Button buttonComponent = combatantsButton.gameObject.GetComponent<Button>();
+        buttonComponent.onClick.AddListener(combatantsButton.SetButtonTarget);
+        combatantsButton.gameObject.SetActive(true);
     }
 
     public void Clear(){
