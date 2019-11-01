@@ -4,7 +4,7 @@ using UnityEngine;
 
 using LIMB;
 using UnityEngine.UI;
-public class SelectionButton : MonoBehaviour
+public class SkillButton : MonoBehaviour
 {
     [SerializeField]
     Skill skill;
@@ -17,12 +17,6 @@ public class SelectionButton : MonoBehaviour
     void Start()
     {
         ui = GameObject.FindObjectOfType<ActionBuilderUI>();    
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void SetSkill(Skill skill){
