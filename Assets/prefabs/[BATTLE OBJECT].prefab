@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6630358281431300905}
   - component: {fileID: 27858939}
   - component: {fileID: 27858940}
+  - component: {fileID: 1735838761}
+  - component: {fileID: 1735838760}
   m_Layer: 0
   m_Name: '[BATTLE OBJECT]'
   m_TagString: Untagged
@@ -57,6 +59,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078cba1ac708adc46ab96008b45a4061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1735838761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827436586592001740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1465209106, guid: c8d0ad23af520fe46aabe2b1fecf6462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"collection":{"$content":[{"name":"ActionBuilderUI","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 688262116203781597}
+--- !u!114 &1735838760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827436586592001740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1999370065, guid: dcd2196c4e9166f499793f2007fcda35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: b88274c2087bf994d88cf15bad6cb0ae, type: 2}
 --- !u!1001 &3057935872909418149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64,11 +98,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6630358281431300905}
     m_Modifications:
-    - target: {fileID: 2585852088053384061, guid: 209f548483d18e34389572b2fddd816f,
-        type: 3}
-      propertyPath: m_Name
-      value: Battle Menu
-      objectReference: {fileID: 0}
     - target: {fileID: 2585852088053384057, guid: 209f548483d18e34389572b2fddd816f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -174,6 +203,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2585852088053384061, guid: 209f548483d18e34389572b2fddd816f,
+        type: 3}
+      propertyPath: m_Name
+      value: Battle Menu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 209f548483d18e34389572b2fddd816f, type: 3}
 --- !u!224 &688262116203781596 stripped
@@ -182,3 +216,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3057935872909418149}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &688262116203781597 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2585852088053384056, guid: 209f548483d18e34389572b2fddd816f,
+    type: 3}
+  m_PrefabInstance: {fileID: 3057935872909418149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257480acb8fd0804e8da5485d317154e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
