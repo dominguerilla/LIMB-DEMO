@@ -5,15 +5,14 @@ using UnityEngine;
 using Bolt;
 
 /// <summary>
-/// Triggers BOLT CustomEvents based on UnityEvents called from BattleManager.
+/// Triggers BOLT CustomEvents based on UnityEvents called from ActionBuilderUI.
 /// </summary>
-[RequireComponent(typeof(BattleManager))]
-public class BattleEventNotifier : MonoBehaviour
+public class ActionBuilderUINotifier : MonoBehaviour
 {
-
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -22,7 +21,7 @@ public class BattleEventNotifier : MonoBehaviour
         
     }
 
-    public void BattleStart() {
-        CustomEvent.Trigger(this.gameObject, "Battle Start");
+    public void OnSkillSelected() {
+        CustomEvent.Trigger(this.gameObject, "On Skill Selected");
     }
 }

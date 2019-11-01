@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+using UnityEngine.Events;
 using LIMB;
 /// <summary>
 /// Creates and enqueues an Action to perform for the currently controlled Combatant through UI.
@@ -32,6 +33,9 @@ public class ActionBuilderUI : MonoBehaviour
     
     [SerializeField]
     CombatantsButtonLister targetLister;
+
+    [SerializeField]
+    UnityEvent onSkillSelected;
     
     // Start is called before the first frame update
     void Start()
@@ -53,6 +57,7 @@ public class ActionBuilderUI : MonoBehaviour
 
     public void SelectSkill(Skill skill){
         this.currentSkill = skill;
+        this.onSkillSelected.Invoke();
     }
 
     public void EnqueueAction() {
