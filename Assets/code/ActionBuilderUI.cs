@@ -25,7 +25,7 @@ public class ActionBuilderUI : MonoBehaviour
     /// The UI will decide which Combatant the Action will target.
     /// This should be a Combatant that the currentSkill is able to target.
     /// </summary>
-    public Combatant possibleTargets;
+    public Combatant[] selectedTargets;
 
     [SerializeField]
     SkillButtonLister skillLister;
@@ -55,7 +55,7 @@ public class ActionBuilderUI : MonoBehaviour
     }
 
     public void EnqueueAction() {
-        Action action = new Action(currentCombatant, currentSkill, possibleTargets);
+        Action action = new Action(currentCombatant, currentSkill, selectedTargets);
         Debug.Log("Enqueued Action: " + action.ToString());
     }
 
@@ -97,6 +97,11 @@ public class ActionBuilderUI : MonoBehaviour
 
     public void ClearPossibleTargets(){
         this.targetLister.Clear();
+    }
+
+    public void SetTargets(params Combatant[] combatants) {
+        this.selectedTargets = combatants;
+        Debug.Log("Selected targets: " + string.Join<Combatant>(", ", this.selectedTargets));
     }
 
 }

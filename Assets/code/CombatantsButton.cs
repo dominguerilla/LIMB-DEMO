@@ -14,6 +14,14 @@ public class CombatantsButton : MonoBehaviour
     [SerializeField]
     Combatant[] combatants;
 
+    // Don't think this is the best way to do it...
+    // maybe inject this into SkillButton instead?
+    ActionBuilderUI ui;
+
+    private void Start() {
+        ui = GameObject.FindObjectOfType<ActionBuilderUI>();
+    }
+
     public void SetCombatants(params Combatant[] combatants){
         this.combatants = combatants;
         string combatantsName = "";
@@ -34,7 +42,7 @@ public class CombatantsButton : MonoBehaviour
     }
 
     public void SetButtonTarget(){
-
+       ui.SetTargets(this.combatants);
     }
 
 }
