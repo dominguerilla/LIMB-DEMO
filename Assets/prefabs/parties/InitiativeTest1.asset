@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1a222b717e75e747928e8935f116bf3, type: 3}
-  m_Name: Goblin
+  m_Script: {fileID: 11500000, guid: 42d5a4f8b6dc3274788142c186106e32, type: 3}
+  m_Name: InitiativeTest1
   m_EditorClassIdentifier: 
-  combatantName: Goblin
-  modelPrefab: {fileID: 0}
-  baseStats: []
-  anatomy: []
-  innateSkills:
-  - {fileID: 11400000, guid: 8bd02fadc9bc56549867613d2b2dd0ce, type: 2}
+  members:
+  - {fileID: 11400000, guid: 632b13fc05ccaaa4da0bd42261479ba6, type: 2}
+  - {fileID: 11400000, guid: 56dff5a7509005945ba56768dfcfe1f6, type: 2}

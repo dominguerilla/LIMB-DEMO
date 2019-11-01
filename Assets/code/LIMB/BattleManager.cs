@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.Events;
 using LIMB;
 public class BattleManager : MonoBehaviour {
+
+    [SerializeField]
+    UnityEvent onBattleStart;
 
     List<Action> currentRound;
     int roundCount;
@@ -31,6 +35,7 @@ public class BattleManager : MonoBehaviour {
             foreach(Combatant c in allCombatants){
                 Debug.Log(c + "; SPEED " + c.GetRawStat(Stats.STAT.SPEED));
             }
+            onBattleStart.Invoke();
             Debug.Log("Battle started!");
         }
     }
@@ -109,4 +114,5 @@ public class BattleManager : MonoBehaviour {
     public bool CanContinueBattle(){
         return inBattle && true;
     }
+
 }

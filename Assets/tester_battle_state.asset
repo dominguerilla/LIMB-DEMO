@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1083378141, guid: dcd2196c4e9166f499793f2007fcda35, type: 3}
+  m_Name: tester_battle_state
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"title":"Battle Flow tester","summary":null,"pan":{"x":-1447.0,"y":-283.5},"zoom":1.0,"elements":[{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Init","summary":null,"pan":{"x":325.8542,"y":331.9435},"zoom":0.8,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-205.0,"y":-215.0},"guid":"080a4565-44ab-455a-af6a-726e70737677","$version":"A","$type":"Bolt.OnEnterState"},{"coroutine":false,"defaultValues":{},"position":{"x":-161.0,"y":-38.0},"guid":"6012baf7-1d04-434b-b5d7-9237a57185b1","$version":"A","$type":"Bolt.Update"},{"coroutine":false,"defaultValues":{},"position":{"x":-205.0,"y":145.0},"guid":"928ef3ed-047b-4164-b4a6-3a94892adb49","$version":"A","$type":"Bolt.OnExitState"},{"coroutine":false,"defaultValues":{"target":null},"position":{"x":54.0,"y":319.0},"guid":"b94dd1b8-abb2-4078-800d-8537f427d098","$version":"A","$type":"Bolt.OnButtonClick"}],"$version":"A"}},"isStart":true,"position":{"x":-1676.0,"y":-342.0},"width":170.0,"guid":"84852c7a-da20-4c54-b862-6ee295771c92","$version":"A","$type":"Bolt.FlowState"}],"$version":"A"}}'
+    _objectReferences: []
