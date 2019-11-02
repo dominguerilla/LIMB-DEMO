@@ -12,4 +12,8 @@ public class ActionBuilderUINotifier : MonoBehaviour
     public void OnSkillSelected() {
         CustomEvent.Trigger(this.gameObject, "On Skill Selected");
     }
+
+    public void OnTargetSelected(){
+        CustomEvent.Trigger(this.gameObject, "On Target Selected");
+    }
 }

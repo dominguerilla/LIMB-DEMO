@@ -36,10 +36,12 @@ public class ActionBuilderUI : MonoBehaviour
 
     [SerializeField]
     UnityEvent onSkillSelected;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
+
+    [SerializeField]
+    UnityEvent onTargetSelected;
+
+    public Action CreateAction(){
+        return new Action(currentCombatant, currentSkill, selectedTargets);
     }
 
     public void DisplaySkills() {
@@ -107,6 +109,7 @@ public class ActionBuilderUI : MonoBehaviour
 
     public void SetTargets(params Combatant[] combatants) {
         this.selectedTargets = combatants;
+        this.onTargetSelected.Invoke();
         Debug.Log("Selected targets: " + string.Join<Combatant>(", ", this.selectedTargets));
     }
 

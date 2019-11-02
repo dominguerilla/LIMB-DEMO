@@ -9,18 +9,12 @@ public class BattleManager : MonoBehaviour {
     [SerializeField]
     UnityEvent onBattleStart;
 
-    List<Action> currentRound;
-    int roundCount;
     bool inBattle;
     List<Combatant> lCombatants, rCombatants;
 
     // Sorted by descending SPEED.
     Queue<Combatant> allCombatants;
     Combatant currentCombatant;
-
-    private void Awake() {
-        currentRound = new List<Action>();
-    }
 
     public void StartBattle(NPCParty leftParty, NPCParty rightParty){
         if(!inBattle){
@@ -51,29 +45,8 @@ public class BattleManager : MonoBehaviour {
         }
     }
     
-    public void ExecuteRound() {
-        this.currentRound.Clear();
-        this.roundCount++;
-    }
-
-    public void AddActions(params Action[] actions) {
-        this.currentRound.AddRange(actions);
-    }
-
-    /// <summary>
-    /// Return the number of rounds that have gone by.
-    /// </summary>
-    /// <returns></returns>
-    public int GetRoundCount() {
-        return roundCount;
-    }
-
-    /// <summary>
-    /// Return the number of Actions in the current round.
-    /// </summary>
-    /// <returns></returns>
-    public int GetRoundLength() {
-        return currentRound.Count;
+    public void ExecuteAction(Action action) {
+        Debug.Log("Action executed: " + action.ToString());
     }
 
     List<Combatant> GenerateCombatants(NPCParty party){
