@@ -9,6 +9,9 @@ public class BattleManager : MonoBehaviour {
     [SerializeField]
     UnityEvent onBattleStart;
 
+    [SerializeField]
+    UnityEvent onActionExecuted;
+
     bool inBattle;
     List<Combatant> lCombatants, rCombatants;
 
@@ -26,9 +29,9 @@ public class BattleManager : MonoBehaviour {
             sortedCombatants = sortedCombatants.OrderByDescending(c => c.GetRawStat(Stats.STAT.SPEED));
             allCombatants = new Queue<Combatant>(sortedCombatants);
             
-            foreach(Combatant c in allCombatants){
+            /*foreach(Combatant c in allCombatants){
                 Debug.Log(c + "; SPEED " + c.GetRawStat(Stats.STAT.SPEED));
-            }
+            }*/
             onBattleStart.Invoke();
             Debug.Log("Battle started!");
         }
@@ -48,6 +51,7 @@ public class BattleManager : MonoBehaviour {
     public void ExecuteAction(Action action) {
         action.Execute();
         Debug.Log("Action executed: " + action.ToString());
+        onActionExecuted.Invoke();
     }
 
     List<Combatant> GenerateCombatants(NPCParty party){

@@ -14,7 +14,7 @@ public class ActionBuilderUI : MonoBehaviour
     /// <summary>
     /// The BattleManager will decide the current Combatant to build an Action for.
     /// </summary>
-    public Combatant currentCombatant;
+    Combatant currentCombatant;
 
     /// <summary>
     /// The UI will decide what Skill to build an Action for.
@@ -112,5 +112,13 @@ public class ActionBuilderUI : MonoBehaviour
         this.onTargetSelected.Invoke();
         Debug.Log("Selected targets: " + string.Join<Combatant>(", ", this.selectedTargets));
     }
+    
+    public void SetCurrentCombatant(Combatant combatant){
+        this.currentCombatant = combatant;
+        Debug.Log("Current combatant: " + this.currentCombatant);
+    }
 
+    public Combatant GetCurrentCombatant(){
+        return this.currentCombatant;
+    }
 }

@@ -12,4 +12,8 @@ public class BattleEventNotifier : MonoBehaviour
     public void BattleStart() {
         CustomEvent.Trigger(this.gameObject, "Battle Start");
     }
+
+    public void OnActionExecuted(){
+        CustomEvent.Trigger(this.gameObject, "On Action Executed");
+    }
 }
