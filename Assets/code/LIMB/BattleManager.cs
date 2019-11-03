@@ -46,6 +46,7 @@ public class BattleManager : MonoBehaviour {
     }
     
     public void ExecuteAction(Action action) {
+        action.Execute();
         Debug.Log("Action executed: " + action.ToString());
     }
 
