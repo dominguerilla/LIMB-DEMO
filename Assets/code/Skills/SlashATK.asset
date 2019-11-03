@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: SLASH
   category: 0
-  targetable: 0
+  targetable: 2
   targetType: 1
   damage:
     timing: 0
     type: 2
     magnitude: 0
-    flatDamage: 7
+    flatDamage: 5000

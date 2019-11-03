@@ -87,10 +87,33 @@ public class BattleManager : MonoBehaviour {
     }
     
     /// <summary>
-    /// Returns true if there is at least one living Combatant on each party.
+    /// Checks the following in this order:
+    /// 1. Is the BattleManager in battle?
+    /// 2. Are the lCombatants alive?
+    /// 3. Are the rCombatants alive?
+    /// If any are false, return false.
     /// </summary>
     public bool CanContinueBattle(){
-        return inBattle && true;
+        if(!inBattle) return false;
+
+        bool canPartyContinue = false;
+        foreach(Combatant combatant in this.lCombatants){
+            if(combatant.IsAlive()){
+                canPartyContinue = true;
+            }
+        }
+        if(!canPartyContinue){
+            return false;
+        }
+
+        canPartyContinue = false;
+        foreach(Combatant combatant in this.rCombatants){
+            if(combatant.IsAlive()){
+                canPartyContinue = true;
+            }
+        }
+
+        return canPartyContinue;
     }
 
 }
