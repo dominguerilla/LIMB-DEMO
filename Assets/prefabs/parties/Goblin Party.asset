@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42d5a4f8b6dc3274788142c186106e32, type: 3}
-  m_Name: TestParty1
+  m_Name: Goblin Party
   m_EditorClassIdentifier: 
   members:
-  - {fileID: 11400000, guid: 632b13fc05ccaaa4da0bd42261479ba6, type: 2}
-  - {fileID: 11400000, guid: 56dff5a7509005945ba56768dfcfe1f6, type: 2}
+  - {fileID: 11400000, guid: c453a9c1e66ca5849916dfd0a69662ca, type: 2}
+  - {fileID: 11400000, guid: c453a9c1e66ca5849916dfd0a69662ca, type: 2}
+  - {fileID: 11400000, guid: c453a9c1e66ca5849916dfd0a69662ca, type: 2}

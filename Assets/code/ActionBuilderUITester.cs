@@ -38,7 +38,7 @@ public class ActionBuilderUITester : MonoBehaviour
     }
     
     public void ShowSkills(){
-        ui.currentCombatant = new Combatant(currentCombatant);
+        ui.SetCurrentCombatant(new Combatant(currentCombatant));
         ui.EnableSkillPanel();
         ui.DisplaySkills();
     }
@@ -54,7 +54,7 @@ public class ActionBuilderUITester : MonoBehaviour
         int partyLength = alliedParty.GetData().Length;
         Combatant[] fullAlliedParty = new Combatant[partyLength + 1];
         Array.Copy(CreateCombatants(alliedParty), fullAlliedParty, partyLength);
-        fullAlliedParty[partyLength] = ui.currentCombatant;
+        fullAlliedParty[partyLength] = ui.GetCurrentCombatant();
 
         ui.DisplayPossibleTargets(
             lParty: fullAlliedParty,

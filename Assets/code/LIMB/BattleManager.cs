@@ -2,21 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.Events;
 using LIMB;
 public class BattleManager : MonoBehaviour {
 
-    List<Action> currentRound;
-    int roundCount;
+    [SerializeField]
+    UnityEvent onBattleStart;
+
+    [SerializeField]
+    UnityEvent onActionExecuted;
+
     bool inBattle;
     List<Combatant> lCombatants, rCombatants;
 
     // Sorted by descending SPEED.
     Queue<Combatant> allCombatants;
     Combatant currentCombatant;
-
-    private void Awake() {
-        currentRound = new List<Action>();
-    }
 
     public void StartBattle(NPCParty leftParty, NPCParty rightParty){
         if(!inBattle){
@@ -28,9 +29,10 @@ public class BattleManager : MonoBehaviour {
             sortedCombatants = sortedCombatants.OrderByDescending(c => c.GetRawStat(Stats.STAT.SPEED));
             allCombatants = new Queue<Combatant>(sortedCombatants);
             
-            foreach(Combatant c in allCombatants){
+            /*foreach(Combatant c in allCombatants){
                 Debug.Log(c + "; SPEED " + c.GetRawStat(Stats.STAT.SPEED));
-            }
+            }*/
+            onBattleStart.Invoke();
             Debug.Log("Battle started!");
         }
     }
@@ -46,29 +48,10 @@ public class BattleManager : MonoBehaviour {
         }
     }
     
-    public void ExecuteRound() {
-        this.currentRound.Clear();
-        this.roundCount++;
-    }
-
-    public void AddActions(params Action[] actions) {
-        this.currentRound.AddRange(actions);
-    }
-
-    /// <summary>
-    /// Return the number of rounds that have gone by.
-    /// </summary>
-    /// <returns></returns>
-    public int GetRoundCount() {
-        return roundCount;
-    }
-
-    /// <summary>
-    /// Return the number of Actions in the current round.
-    /// </summary>
-    /// <returns></returns>
-    public int GetRoundLength() {
-        return currentRound.Count;
+    public void ExecuteAction(Action action) {
+        action.Execute();
+        Debug.Log("Action executed: " + action.ToString());
+        onActionExecuted.Invoke();
     }
 
     List<Combatant> GenerateCombatants(NPCParty party){
@@ -104,9 +87,33 @@ public class BattleManager : MonoBehaviour {
     }
     
     /// <summary>
-    /// Returns true if there is at least one living Combatant on each party.
+    /// Checks the following in this order:
+    /// 1. Is the BattleManager in battle?
+    /// 2. Are the lCombatants alive?
+    /// 3. Are the rCombatants alive?
+    /// If any are false, return false.
     /// </summary>
     public bool CanContinueBattle(){
-        return inBattle && true;
+        if(!inBattle) return false;
+
+        bool canPartyContinue = false;
+        foreach(Combatant combatant in this.lCombatants){
+            if(combatant.IsAlive()){
+                canPartyContinue = true;
+            }
+        }
+        if(!canPartyContinue){
+            return false;
+        }
+
+        canPartyContinue = false;
+        foreach(Combatant combatant in this.rCombatants){
+            if(combatant.IsAlive()){
+                canPartyContinue = true;
+            }
+        }
+
+        return canPartyContinue;
     }
+
 }

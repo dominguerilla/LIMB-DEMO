@@ -9,15 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ef76cbcb9d6f3c4eb704cde36efd062, type: 3}
-  m_Name: BashATK
+  m_Script: {fileID: 11500000, guid: 42d5a4f8b6dc3274788142c186106e32, type: 3}
+  m_Name: Hero Party
   m_EditorClassIdentifier: 
-  actionName: BASH
-  category: 0
-  targetable: 2
-  targetType: 0
-  damage:
-    timing: 0
-    type: 1
-    magnitude: 0
-    flatDamage: 10
+  members:
+  - {fileID: 11400000, guid: 60e7757e347baab438fa7d1b867d55f3, type: 2}
+  - {fileID: 11400000, guid: b3af21311409455419c5a9057dfe9a82, type: 2}

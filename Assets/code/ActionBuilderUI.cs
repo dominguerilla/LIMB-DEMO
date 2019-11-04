@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+using UnityEngine.Events;
 using LIMB;
 /// <summary>
 /// Creates and enqueues an Action to perform for the currently controlled Combatant through UI.
@@ -13,7 +14,7 @@ public class ActionBuilderUI : MonoBehaviour
     /// <summary>
     /// The BattleManager will decide the current Combatant to build an Action for.
     /// </summary>
-    public Combatant currentCombatant;
+    Combatant currentCombatant;
 
     /// <summary>
     /// The UI will decide what Skill to build an Action for.
@@ -32,14 +33,20 @@ public class ActionBuilderUI : MonoBehaviour
     
     [SerializeField]
     CombatantsButtonLister targetLister;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
+
+    [SerializeField]
+    UnityEvent onSkillSelected;
+
+    [SerializeField]
+    UnityEvent onTargetSelected;
+
+    public Action CreateAction(){
+        return new Action(currentCombatant, currentSkill, selectedTargets);
     }
 
     public void DisplaySkills() {
         if(skillLister.gameObject.activeInHierarchy){
+            Debug.Log("Displaying skills for " + currentCombatant.ToString());
             skillLister.ListSkills(currentCombatant);
         }else{
             Debug.LogWarning("SkillLister object not active. Enable the Skill Panel first.");
@@ -52,6 +59,7 @@ public class ActionBuilderUI : MonoBehaviour
 
     public void SelectSkill(Skill skill){
         this.currentSkill = skill;
+        this.onSkillSelected.Invoke();
     }
 
     public void EnqueueAction() {
@@ -101,7 +109,16 @@ public class ActionBuilderUI : MonoBehaviour
 
     public void SetTargets(params Combatant[] combatants) {
         this.selectedTargets = combatants;
+        this.onTargetSelected.Invoke();
         Debug.Log("Selected targets: " + string.Join<Combatant>(", ", this.selectedTargets));
     }
+    
+    public void SetCurrentCombatant(Combatant combatant){
+        this.currentCombatant = combatant;
+        Debug.Log("Current combatant: " + this.currentCombatant);
+    }
 
+    public Combatant GetCurrentCombatant(){
+        return this.currentCombatant;
+    }
 }
