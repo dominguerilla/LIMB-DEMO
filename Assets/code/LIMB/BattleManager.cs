@@ -10,6 +10,9 @@ public class BattleManager : MonoBehaviour {
     UnityEvent onBattleStart;
 
     [SerializeField]
+    UnityEvent onBattleEnd;
+
+    [SerializeField]
     UnityEvent onActionExecuted;
 
     bool inBattle;
@@ -40,11 +43,12 @@ public class BattleManager : MonoBehaviour {
     public void EndBattle(){
         if(inBattle){
             inBattle = false;
-            Debug.Log("Battle ended!");
             lCombatants = null;
             rCombatants = null;
             allCombatants = null;
             currentCombatant = null;
+            onBattleEnd.Invoke();
+            Debug.Log("Battle ended!");
         }
     }
     

@@ -25,7 +25,7 @@ public class PartyStatusUI : MonoBehaviour
         }
     }
 
-    public void InitPartyStatus(){
+    public void CreatePartyStatus(){
         party = Locator.GetCombatants().Item1;
         statusCanvas.enabled = true;
         UpdateStatus();
@@ -38,6 +38,17 @@ public class PartyStatusUI : MonoBehaviour
             text.text = CreateStatus(combatant);
             i++;
         }
+    }
+
+    public void DisableStatus(){
+        statusCanvas.enabled = false;
+        int i = 0;
+        foreach(Combatant combatant in party){
+            Text text = statusObjects[i].GetComponentInChildren<Text>();
+            text.text = "";
+            i++;
+        }
+
     }
 
     string CreateStatus(Combatant combatant){
