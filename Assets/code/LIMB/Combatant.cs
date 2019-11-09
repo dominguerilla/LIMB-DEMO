@@ -167,5 +167,9 @@ namespace LIMB {
         public List<Skill> GetSkills(){
             return this.combatantData.GetSkills();
         }
+
+        public string GetName(){
+            return this.combatantData.GetName();
+        }
     }
 }
