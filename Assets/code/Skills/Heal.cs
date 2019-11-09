@@ -9,6 +9,6 @@ using System;
 public class Heal : Skill
 {
     public override void Execute(Combatant actor, Combatant target) {
-        target.InflictDamage(new Damage(-10f));
+        target.ChangeHealth(10f);
     }
 }
