@@ -83,7 +83,16 @@ namespace LIMB {
 
             return totalDamage;
         }
-
+        
+        /// <summary>
+        /// Will add healthDelta to this combatant's health, disregarding any resistances.
+        /// </summary>
+        /// <param name="healthDelta"></param>
+        /// <returns>The new current health of this combatant.</returns>
+        public float ChangeHealth(float healthDelta){
+            this.currentHealth += healthDelta;
+            return this.currentHealth;
+        }
         /// <summary>
         /// Returns the current resistance value specified for the limb, taking into account the combatant's base stats and its equipment/skill/buffs
         /// Should call resistance calculation formula. For now, returns base resistance.
@@ -166,6 +175,10 @@ namespace LIMB {
 
         public List<Skill> GetSkills(){
             return this.combatantData.GetSkills();
+        }
+
+        public string GetName(){
+            return this.combatantData.GetName();
         }
     }
 }

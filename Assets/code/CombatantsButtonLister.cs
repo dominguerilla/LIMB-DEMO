@@ -18,6 +18,9 @@ public class CombatantsButtonLister : MonoBehaviour
     /// This might get annoying when you have 20+ objects though...
     /// 
     private static int MAX_BUTTON_NUM = 4;
+
+    [SerializeField]
+    Transform panelTransform;
     
     /// <summary>
     /// The UI Button prefab that represents a Skill.
@@ -35,7 +38,7 @@ public class CombatantsButtonLister : MonoBehaviour
         activeButtons = new List<CombatantsButton>();
         for(int i = 0; i < MAX_BUTTON_NUM; i++){
             GameObject button = GameObject.Instantiate<GameObject>(buttonPrefab);
-            button.transform.SetParent(this.transform);
+            button.transform.SetParent(this.panelTransform);
 
             CombatantsButton objButton = button.GetComponent<CombatantsButton>();
             if(!objButton){

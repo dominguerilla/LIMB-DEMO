@@ -18,6 +18,9 @@ public class SkillButtonLister : MonoBehaviour
     /// 
     private static int MAX_BUTTON_NUM = 4;
     
+    [SerializeField]
+    Transform panelTransform;
+
     /// <summary>
     /// The UI Button prefab that represents a Skill.
     /// </summary>
@@ -34,7 +37,7 @@ public class SkillButtonLister : MonoBehaviour
         activeButtons = new List<SkillButton>();
         for(int i = 0; i < MAX_BUTTON_NUM; i++){
             GameObject button = GameObject.Instantiate<GameObject>(buttonPrefab);
-            button.transform.SetParent(this.transform);
+            button.transform.SetParent(this.panelTransform);
 
             SkillButton objButton = button.GetComponent<SkillButton>();
             if(!objButton){
