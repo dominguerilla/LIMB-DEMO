@@ -1,0 +1,16 @@
+MAST Revision Log:
+
+10/29/2019 - Version 1.1
+--------------------------------------------------------------------------------------------------------
+- New Features:
+    - While in Scene view:  Shift + Mouse Scrollwheel now rotates through all prefabs in the palette.
+
+- Fixes:
+    - Prefab palette is now saved to PNG in the Mast/etc/temp folder for persistence.
+        - Tabbing to fullscreen or running game no longer causes prefab to be lost.
+        - The draw tool and selected prefab are also retained when going fullscreen or running game.
+    
+    - Lag issues when going fullscreen or running game are greatly reduced.
+
+- Unimplemented:
+    - Category ID added to the MAST Prefab Component script to be used in upcoming features.
