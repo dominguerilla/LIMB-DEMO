@@ -16,7 +16,7 @@ MonoBehaviour:
     unitSize: 1
     size: 50
     majorLineStep: 10
-    gridHeight: -2
+    gridHeight: 5
     fillColor: {r: 0.023529412, g: 0.17254902, b: 0.22745098, a: 0.101960786}
     minorLineColor: {r: 0.6509804, g: 0.81960785, b: 0.8784314, a: 0.34901962}
     majorLineColor: {r: 0.88235295, g: 0.96862745, b: 1, a: 0.4509804}
@@ -25,5 +25,5 @@ MonoBehaviour:
     snapshotCameraPitch: 45
     snapshotCameraYaw: 30
   toolbar:
-    selectedDrawToolIndex: -1
+    selectedDrawToolIndex: 0
     position: 0

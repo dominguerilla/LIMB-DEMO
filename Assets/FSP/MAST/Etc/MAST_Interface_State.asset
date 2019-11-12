@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d5fd28d118e3f54681cbd57341ebc04, type: 3}
   m_Name: MAST_Interface_State
   m_EditorClassIdentifier: 
-  gridExists: 1
-  selectedDrawToolIndex: -1
+  gridExists: 0
+  selectedDrawToolIndex: 0
   selectedItemIndex: -1
   prefabs:
+  - {fileID: 802693207871661483, guid: f6b3efa38041d4a40b48aa24fa3eb6cc, type: 3}
+  - {fileID: 3015513996496489151, guid: b9035d3e14cfd0948b1d2a5a6229b11c, type: 3}
   - {fileID: 5045199036645923784, guid: c70006ee16069114399db5f1f7889e82, type: 3}
   - {fileID: 6531677457134698195, guid: a121adfb056028f4ea4e57088a3b1a07, type: 3}
   - {fileID: 4226847461881459738, guid: 420a9f6509f36d04fab1cc3040fb2f14, type: 3}
@@ -38,6 +40,12 @@ MonoBehaviour:
   - {fileID: 5070756294338360213, guid: 78df12ea39d02a248b6476258fe77862, type: 3}
   - {fileID: 6829208546801348274, guid: dfad0eb5cf819844b8ca1e1e99a5730f, type: 3}
   paletteItemTooltip:
+  - 'MAST
+
+    Eraser'
+  - 'Preview
+
+    Camera'
   - crate
   - 'dirt
 
