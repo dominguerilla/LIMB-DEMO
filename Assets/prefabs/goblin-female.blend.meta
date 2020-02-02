@@ -6,6 +6,12 @@ ModelImporter:
   - first:
       74: -623603649343465320
     second: Scene
+  - first:
+      74: -1485298128536184851
+    second: rig|combatIdle
+  - first:
+      74: -4955865526486368514
+    second: rig|straight_punch
   externalObjects:
   - first:
       type: UnityEngine:Material
