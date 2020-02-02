@@ -1,14 +1,14 @@
 fileFormatVersion: 2
 guid: e4647d449a8361540a630158c2584934
 ModelImporter:
-  serializedVersion: 26
+  serializedVersion: 19300
   internalIDToNameTable:
   - first:
       74: -8479207218105964718
     second: rig|combatIdleAction
   - first:
       74: -623603649343465320
-    second: GOBLIN IDLE
+    second: monk-combat-idle
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -16,7 +16,7 @@ ModelImporter:
       name: voodoohead_Alt2.001
     second: {fileID: 2100000, guid: 813784fd65471a44a9087d55f9dec6f8, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -43,11 +43,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: GOBLIN IDLE
+      name: monk-combat-idle
       takeName: Scene
       internalID: 0
       firstFrame: 1
-      lastFrame: 50
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -109,7 +109,6 @@ ModelImporter:
     normalSmoothingSource: 0
   referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
     serializedVersion: 3
     human: []
@@ -7317,8 +7316,10 @@ ModelImporter:
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
