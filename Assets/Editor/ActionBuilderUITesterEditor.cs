@@ -28,5 +28,9 @@ public class ActionBuilderUITesterEditor : Editor
         if(GUILayout.Button("Hide Possible Targets")){
             tester.HidePossibleTargets();
         }
+        if (GUILayout.Button("ASDASD"))
+        {
+            Debug.Log("ASDASD");
+        }
     }
 }
