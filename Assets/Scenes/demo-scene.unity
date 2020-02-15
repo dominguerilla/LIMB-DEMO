@@ -24895,12 +24895,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004538591}
   m_Mesh: {fileID: 4300000, guid: 0a7e10356a228a942a7a3ae813f0eaec, type: 2}
---- !u!1 &1006591173 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: e4647d449a8361540a630158c2584934,
-    type: 3}
-  m_PrefabInstance: {fileID: 1778428710}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1008728270 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 0a7d3ba7311d7924db7d1eacbc66f04b,
@@ -37275,8 +37269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b407ca3e33006054ebb8bc4545c5cfb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 1006591173}
-  animationToTrigger: LightStrike1_L
+  model: {fileID: 1819906403}
+  animationToTrigger: SlimeAttack
 --- !u!4 &1584382529
 Transform:
   m_ObjectHideFlags: 0
