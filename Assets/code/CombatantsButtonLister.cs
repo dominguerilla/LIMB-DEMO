@@ -87,6 +87,7 @@ public class CombatantsButtonLister : MonoBehaviour
         Button buttonComponent = combatantsButton.gameObject.GetComponent<Button>();
         buttonComponent.onClick.AddListener(combatantsButton.SetButtonTarget);
         combatantsButton.gameObject.SetActive(true);
+        buttonComponent.Select();
     }
 
     public void Clear(){

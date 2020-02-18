@@ -64,6 +64,7 @@ public class SkillButtonLister : MonoBehaviour
                 Button buttonComponent = skillButton.gameObject.GetComponent<Button>();
                 buttonComponent.onClick.AddListener(skillButton.SetActionBuilderUISkill);
                 skillButton.gameObject.SetActive(true);
+                buttonComponent.Select();
             }else{
                 Debug.LogError("Out of SkillButtons from pool!");
             }
