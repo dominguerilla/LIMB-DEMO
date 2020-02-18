@@ -32311,6 +32311,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 27858940, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: onBattleStart.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 27858940, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: onBattleEnd.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 27858940, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: onBattleStart.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 27858940, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: onBattleStart.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 27858940, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: onBattleStart.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1584382528}
+    - target: {fileID: 27858940, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: onBattleStart.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: EnableBattleInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 27858940, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: onBattleStart.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 27858940, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: onBattleEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 27858940, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: onBattleEnd.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 27858940, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: onBattleEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1584382528}
+    - target: {fileID: 27858940, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: onBattleEnd.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DisableBattleInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 27858940, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: onBattleEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 497702123, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -37346,6 +37394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584382529}
   - component: {fileID: 1584382528}
+  - component: {fileID: 1584382530}
   m_Layer: 0
   m_Name: CONTROLLER-TEST
   m_TagString: Untagged
@@ -37379,6 +37428,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1584382530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584382527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75831139ea6e29c419d5151999a8593d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DebugMode: 0
+  leftParty: {fileID: 11400000, guid: 408fa71ef414a18448aadf383c139bf4, type: 2}
+  rightParty: {fileID: 11400000, guid: 528e047e4ede6b64db0f05ed0fee96e2, type: 2}
 --- !u!1 &1592295651
 GameObject:
   m_ObjectHideFlags: 0
