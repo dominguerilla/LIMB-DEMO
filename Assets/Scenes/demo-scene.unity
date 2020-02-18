@@ -25990,6 +25990,65 @@ MonoBehaviour:
     posMin: {x: -0.5, y: -0.1, z: -0.5}
     posMax: {x: 0.5, y: 0.1, z: 0.5}
   includeInMerge: 1
+--- !u!1 &1040086268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1040086271}
+  - component: {fileID: 1040086270}
+  - component: {fileID: 1040086269}
+  m_Layer: 0
+  m_Name: Scene Variables
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1040086269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040086268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 995777834, guid: c8d0ad23af520fe46aabe2b1fecf6462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1040086270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040086268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1465209106, guid: c8d0ad23af520fe46aabe2b1fecf6462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"collection":{"$content":[],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []
+--- !u!4 &1040086271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040086268}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1044772534
 GameObject:
   m_ObjectHideFlags: 0
@@ -32336,6 +32395,31 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1735838760, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: _data._objectReferences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735838760, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: _data._json
+      value: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735838760, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: _data._objectReferences.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: b88274c2087bf994d88cf15bad6cb0ae,
+        type: 2}
+    - target: {fileID: 1735838761, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: _data._objectReferences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735838761, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: _data._json
+      value: '{"declarations":{"collection":{"$content":[{"name":"ActionBuilderUI","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735838761, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+      propertyPath: _data._objectReferences.Array.data[0]
+      value: 
+      objectReference: {fileID: 1363342403}
     - target: {fileID: 827436586592001740, guid: dcc60cbb4312dbc45b9d512a5fb85849,
         type: 3}
       propertyPath: m_Name
@@ -32398,6 +32482,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
+--- !u!114 &1363342403 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 688262116203781597, guid: dcc60cbb4312dbc45b9d512a5fb85849,
+    type: 3}
+  m_PrefabInstance: {fileID: 1363342402}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257480acb8fd0804e8da5485d317154e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1363981611
 GameObject:
   m_ObjectHideFlags: 0
@@ -37251,7 +37347,7 @@ GameObject:
   - component: {fileID: 1584382529}
   - component: {fileID: 1584382528}
   m_Layer: 0
-  m_Name: ANIM-TEST
+  m_Name: CONTROLLER-TEST
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37266,11 +37362,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1584382527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b407ca3e33006054ebb8bc4545c5cfb5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b6538db1610d3a4990217e3f7d8c568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 1819906403}
-  animationToTrigger: SlimeAttack
 --- !u!4 &1584382529
 Transform:
   m_ObjectHideFlags: 0
