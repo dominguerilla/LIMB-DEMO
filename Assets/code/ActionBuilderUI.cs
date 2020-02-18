@@ -35,6 +35,9 @@ public class ActionBuilderUI : MonoBehaviour
     CombatantsButtonLister targetLister;
 
     [SerializeField]
+    GameObject actionCategorySelectMenu;
+
+    [SerializeField]
     UnityEvent onSkillSelected;
 
     [SerializeField]
@@ -105,6 +108,14 @@ public class ActionBuilderUI : MonoBehaviour
 
     public void ClearPossibleTargets(){
         this.targetLister.Clear();
+    }
+
+    public void DisplayActionSelectMenu() {
+        actionCategorySelectMenu.gameObject.SetActive(true);
+    }
+
+    public void HideActionSelectMenu() {
+        actionCategorySelectMenu.gameObject.SetActive(false);
     }
 
     public void SetTargets(params Combatant[] combatants) {
