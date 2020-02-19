@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -53,8 +53,12 @@ public class SkillButtonLister : MonoBehaviour
     /// Creates Buttons for the first four skills that the Combatant has.
     /// </summary>
     /// <param name="combatant"></param>
-    public void ListSkills(Combatant combatant){
+    public void ListSkills(Combatant combatant, Skill.MENU_CATEGORY category = Skill.MENU_CATEGORY.NONE){
         currentSkills = combatant.GetSkills();
+        if (category != Skill.MENU_CATEGORY.NONE)
+        {
+            currentSkills = (List<Skill>)currentSkills.Where( x => x.category == category);
+        }
         int skillNum = Mathf.Min(MAX_BUTTON_NUM, currentSkills.Count);
         
         for(int i = 0; i < skillNum; i++){

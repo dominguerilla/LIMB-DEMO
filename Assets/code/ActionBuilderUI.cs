@@ -47,10 +47,10 @@ public class ActionBuilderUI : MonoBehaviour
         return new Action(currentCombatant, currentSkill, selectedTargets);
     }
 
-    public void DisplaySkills() {
+    public void DisplaySkills(Skill.MENU_CATEGORY category = Skill.MENU_CATEGORY.NONE) {
         if(skillLister.gameObject.activeInHierarchy){
             Debug.Log("Displaying skills for " + currentCombatant.ToString());
-            skillLister.ListSkills(currentCombatant);
+            skillLister.ListSkills(currentCombatant, category);
         }else{
             Debug.LogWarning("SkillLister object not active. Enable the Skill Panel first.");
         }

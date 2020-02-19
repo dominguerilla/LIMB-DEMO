@@ -14,6 +14,7 @@ namespace LIMB {
         /// Specifies the UI menu that this action should belong to
         /// </summary>
         public enum MENU_CATEGORY{
+            NONE,
             ATTACK,
             DEFEND,
             MAGIC,
