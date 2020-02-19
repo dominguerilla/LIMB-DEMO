@@ -16,7 +16,7 @@ namespace LIMB {
         public enum MENU_CATEGORY{
             ATTACK,
             DEFEND,
-            SKILL,
+            MAGIC,
             ITEM,
             ESCAPE
         }
