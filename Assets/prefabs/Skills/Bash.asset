@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef76cbcb9d6f3c4eb704cde36efd062, type: 3}
   m_Name: Bash
   m_EditorClassIdentifier: 
-  actionName: 
-  category: 0
-  targetable: 0
+  actionName: Bash
+  category: 1
+  targetable: 2
   targetType: 0
   damage:
     timing: 0
-    type: 0
-    magnitude: 0
+    type: 1
+    magnitude: 2
     flatDamage: 0

@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1a222b717e75e747928e8935f116bf3, type: 3}
-  m_Name: GoblinAlly
+  m_Name: Human Knight
   m_EditorClassIdentifier: 
-  combatantName: Goblin Ally
+  combatantName: Human Knight
   modelPrefab: {fileID: 0}
   baseStats: []
   anatomy: []
   innateSkills:
-  - {fileID: 11400000, guid: 7dd6eba38f379dc4fb4b2f7b2cafd22e, type: 2}
+  - {fileID: 11400000, guid: 0049e604f5270eb4eb7879972893d029, type: 2}
   - {fileID: 11400000, guid: 358c083fde8cf3740862f344924f6a47, type: 2}
   - {fileID: 11400000, guid: 8bd02fadc9bc56549867613d2b2dd0ce, type: 2}
-  - {fileID: 11400000, guid: 0049e604f5270eb4eb7879972893d029, type: 2}

@@ -33,22 +33,22 @@ public class ControllerTest : MonoBehaviour
 
     void BattleInput()
     {
-        if (Input.GetKeyDown(KeyCode.Joystick1Button3))
+        if (Input.GetKeyUp(KeyCode.Joystick1Button3))
         {
             Debug.Log("ATK MENU");
             CustomEvent.Trigger(bmObject, "Action Type Selected");
         }
-        else if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+        else if (Input.GetKeyUp(KeyCode.Joystick1Button1))
         {
             Debug.Log("RUN AWAY MENU");
             CustomEvent.Trigger(bmObject, "Action Type Selected");
         }
-        else if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+        else if (Input.GetKeyUp(KeyCode.Joystick1Button0))
         {
             Debug.Log("MAG MENU");
             CustomEvent.Trigger(bmObject, "Action Type Selected");
         }
-        else if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+        else if (Input.GetKeyUp(KeyCode.Joystick1Button2))
         {
             Debug.Log("ITEM MENU");
             CustomEvent.Trigger(bmObject, "Action Type Selected");

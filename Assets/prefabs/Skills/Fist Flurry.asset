@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef76cbcb9d6f3c4eb704cde36efd062, type: 3}
   m_Name: Fist Flurry
   m_EditorClassIdentifier: 
-  actionName: 
+  actionName: Fist Flurry
   category: 0
-  targetable: 0
-  targetType: 0
+  targetable: 2
+  targetType: 1
   damage:
     timing: 0
-    type: 0
-    magnitude: 0
+    type: 1
+    magnitude: 2
     flatDamage: 0
