@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stab
   m_EditorClassIdentifier: 
   actionName: Stab
-  category: 0
+  category: 1
   targetable: 2
   targetType: 0
   damage:

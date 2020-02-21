@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Whirling Slash
   m_EditorClassIdentifier: 
   actionName: Whirling Slash
-  category: 0
+  category: 1
   targetable: 2
   targetType: 1
   damage:

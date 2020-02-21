@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jab
   m_EditorClassIdentifier: 
   actionName: Jab
-  category: 0
+  category: 1
   targetable: 2
   targetType: 0
   damage:

@@ -32592,7 +32592,7 @@ PrefabInstance:
     - target: {fileID: 27858940, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
       propertyPath: onBattleStart.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1584382528}
+      objectReference: {fileID: 0}
     - target: {fileID: 27858940, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
       propertyPath: onBattleStart.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: EnableBattleInput
@@ -32612,7 +32612,7 @@ PrefabInstance:
     - target: {fileID: 27858940, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
       propertyPath: onBattleEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1584382528}
+      objectReference: {fileID: 0}
     - target: {fileID: 27858940, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
       propertyPath: onBattleEnd.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: DisableBattleInput
@@ -32724,7 +32724,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1735838761, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
       propertyPath: _data._json
-      value: '{"declarations":{"collection":{"$content":[{"name":"ActionBuilderUI","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+      value: '{"declarations":{"collection":{"$content":[{"name":"ActionBuilderUI","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"Menu
+        Cooldown Time","value":{"$content":0.4,"$type":"System.Single"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
       objectReference: {fileID: 0}
     - target: {fileID: 1735838761, guid: dcc60cbb4312dbc45b9d512a5fb85849, type: 3}
       propertyPath: _data._objectReferences.Array.data[0]
@@ -37660,7 +37661,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1584382529}
-  - component: {fileID: 1584382528}
   - component: {fileID: 1584382530}
   m_Layer: 0
   m_Name: CONTROLLER-TEST
@@ -37669,18 +37669,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1584382528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584382527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b6538db1610d3a4990217e3f7d8c568, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1584382529
 Transform:
   m_ObjectHideFlags: 0

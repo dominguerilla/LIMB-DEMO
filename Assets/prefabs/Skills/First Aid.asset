@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: First Aid
   m_EditorClassIdentifier: 
   actionName: First Aid
-  category: 2
+  category: 3
   targetable: 1
   targetType: 0

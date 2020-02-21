@@ -57,7 +57,7 @@ public class SkillButtonLister : MonoBehaviour
         currentSkills = combatant.GetSkills();
         if (category != Skill.MENU_CATEGORY.NONE)
         {
-            currentSkills = (List<Skill>)currentSkills.Where( x => x.category == category);
+            currentSkills = currentSkills.Where( x => x.category == category).ToList<Skill>();
         }
         int skillNum = Mathf.Min(MAX_BUTTON_NUM, currentSkills.Count);
         

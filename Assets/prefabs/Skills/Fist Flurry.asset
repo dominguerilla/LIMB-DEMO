@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fist Flurry
   m_EditorClassIdentifier: 
   actionName: Fist Flurry
-  category: 0
+  category: 1
   targetable: 2
   targetType: 1
   damage:

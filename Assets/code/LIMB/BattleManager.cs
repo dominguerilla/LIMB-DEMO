@@ -120,4 +120,8 @@ public class BattleManager : MonoBehaviour {
         return canPartyContinue;
     }
 
+    public bool isInBattle()
+    {
+        return inBattle;
+    }
 }

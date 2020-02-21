@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shield Bash
   m_EditorClassIdentifier: 
   actionName: Shield Bash
-  category: 0
+  category: 1
   targetable: 2
   targetType: 0
   damage:
