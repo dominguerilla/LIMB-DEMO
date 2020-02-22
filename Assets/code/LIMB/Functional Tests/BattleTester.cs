@@ -27,7 +27,7 @@ public class BattleTester : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Joystick1Button9))
+        if (Input.GetKeyDown(KeyCode.JoystickButton9))
         {
             if (!bManager.isInBattle())
             {

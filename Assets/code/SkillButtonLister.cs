@@ -55,9 +55,31 @@ public class SkillButtonLister : MonoBehaviour
     /// <param name="combatant"></param>
     public void ListSkills(Combatant combatant, Skill.MENU_CATEGORY category = Skill.MENU_CATEGORY.NONE){
         currentSkills = combatant.GetSkills();
+        if (currentSkills == null)
+        {
+            Debug.LogError(string.Format("Combatant {0} has no set skills!", combatant.GetName()));
+            return;
+        }
         if (category != Skill.MENU_CATEGORY.NONE)
         {
-            currentSkills = currentSkills.Where( x => x.category == category).ToList<Skill>();
+            IEnumerable<Skill> filtered_skills = currentSkills.Where( (x) => 
+            {
+                // I could replace this with a single boolean expression,
+                // but this looks easier to read.
+                if (x != null) {
+                    return x.category == category;
+                }
+                return false;
+            });
+            if (filtered_skills.Count<Skill>() == 0)
+            {
+                Debug.LogWarning(string.Format("Combatant {0} has no {1} skills!", combatant.GetName(), category));
+                return;
+            }
+            else
+            {
+                currentSkills = filtered_skills.ToList<Skill>();
+            }
         }
         int skillNum = Mathf.Min(MAX_BUTTON_NUM, currentSkills.Count);
         
