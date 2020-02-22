@@ -2,7 +2,7 @@
 
 # This is the subfolder needed only for installation from the Asset Store.
 Assets/Install Bolt*
-Assets/Install Bolt.meta
+"Assets/Install Bolt.meta"
 
 # Always exclude these files, because they are part of the plugin
 
