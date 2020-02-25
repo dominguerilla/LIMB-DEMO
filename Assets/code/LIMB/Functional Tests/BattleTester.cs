@@ -25,15 +25,4 @@ public class BattleTester : MonoBehaviour {
         bManager.EndBattle();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.JoystickButton9))
-        {
-            if (!bManager.isInBattle())
-            {
-                Debug.LogWarning("Battle Tester starting battle!");
-                StartBattle();
-            }
-        }   
-    }
 }
