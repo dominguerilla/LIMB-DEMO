@@ -12,18 +12,28 @@ using UnityEngine.Events;
 [RequireComponent(typeof(PlayerInput))]
 public class InputToBolt : MonoBehaviour
 {
-    public void OnMenuLeft(InputAction.CallbackContext context)
+    public void OnMenuLeft(InputValue value)
     {
-        CustomEvent.Trigger(this.gameObject, "OnMenuLeft", context); 
+        CustomEvent.Trigger(this.gameObject, "OnMenuLeft", value); 
     }
 
-    public void OnMenuUp(InputAction.CallbackContext context)
+    public void OnMenuUp(InputValue value)
     {
-        CustomEvent.Trigger(this.gameObject, "OnMenuUp", context);
+        CustomEvent.Trigger(this.gameObject, "OnMenuUp", value);
     }
 
-    public void OnStart(InputAction.CallbackContext context)
+    public void OnStart(InputValue value)
     {
-        CustomEvent.Trigger(this.gameObject, "OnStart", context);
+        CustomEvent.Trigger(this.gameObject, "OnStart", value);
+    }
+
+    public void OnMenuRight(InputValue value)
+    {
+        CustomEvent.Trigger(this.gameObject, "OnMenuRight", value);
+    }
+
+    public void OnMenuDown(InputValue value)
+    {
+        CustomEvent.Trigger(this.gameObject, "OnMenuDown", value);
     }
 }
