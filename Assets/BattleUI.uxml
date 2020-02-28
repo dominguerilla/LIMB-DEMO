@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="screen" style="justify-content: flex-end; flex-grow: 1; flex-shrink: 1; align-items: center;">
+        <Style src="BattleUI.uss" />
+        <ui:Label text="TRIANGLE - ATK&#10;SQUARE - MAG&#10;CIRCLE - ITEM&#10;X - RUN" name="choicemenu" style="-unity-text-align: upper-center; border-left-color: rgba(255, 0, 0, 255); border-right-color: rgba(255, 0, 0, 255); border-top-color: rgba(255, 0, 0, 255); border-bottom-color: rgba(255, 0, 0, 255); border-left-width: 4px; border-right-width: 4px; border-top-width: 4px; border-bottom-width: 4px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; width: 33%; bottom: 10%;" />
+    </ui:VisualElement>
+</ui:UXML>
