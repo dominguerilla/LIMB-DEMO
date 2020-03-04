@@ -35,6 +35,9 @@ public class ActionBuilderUI : MonoBehaviour
     CombatantsButtonLister targetLister;
 
     [SerializeField]
+    GameObject actionCategorySelectMenu;
+
+    [SerializeField]
     UnityEvent onSkillSelected;
 
     [SerializeField]
@@ -44,10 +47,10 @@ public class ActionBuilderUI : MonoBehaviour
         return new Action(currentCombatant, currentSkill, selectedTargets);
     }
 
-    public void DisplaySkills() {
+    public void DisplaySkills(Skill.MENU_CATEGORY category = Skill.MENU_CATEGORY.NONE) {
         if(skillLister.gameObject.activeInHierarchy){
             Debug.Log("Displaying skills for " + currentCombatant.ToString());
-            skillLister.ListSkills(currentCombatant);
+            skillLister.ListSkills(currentCombatant, category);
         }else{
             Debug.LogWarning("SkillLister object not active. Enable the Skill Panel first.");
         }
@@ -105,6 +108,14 @@ public class ActionBuilderUI : MonoBehaviour
 
     public void ClearPossibleTargets(){
         this.targetLister.Clear();
+    }
+
+    public void DisplayActionSelectMenu() {
+        actionCategorySelectMenu.gameObject.SetActive(true);
+    }
+
+    public void HideActionSelectMenu() {
+        actionCategorySelectMenu.gameObject.SetActive(false);
     }
 
     public void SetTargets(params Combatant[] combatants) {

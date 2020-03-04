@@ -8,6 +8,10 @@ using UnityEngine.UI;
 public class PartyStatusUI : MonoBehaviour
 {
     private static int MAX_PARTY_SIZE = 4;
+
+    [SerializeField]
+    bool useParty1 = true;
+
     Combatant[] party;
 
     [SerializeField]
@@ -26,7 +30,7 @@ public class PartyStatusUI : MonoBehaviour
     }
 
     public void CreatePartyStatus(){
-        party = Locator.GetCombatants().Item1;
+        party = useParty1 ? Locator.GetCombatants().Item1 : Locator.GetCombatants().Item2;
         statusCanvas.enabled = true;
         UpdateStatus();
     }

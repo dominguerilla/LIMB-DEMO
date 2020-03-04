@@ -24,4 +24,5 @@ public class BattleTester : MonoBehaviour {
     public void EndBattle(){
         bManager.EndBattle();
     }
+
 }

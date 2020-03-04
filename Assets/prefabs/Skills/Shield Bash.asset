@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef76cbcb9d6f3c4eb704cde36efd062, type: 3}
-  m_Name: Fast Jabs
+  m_Name: Shield Bash
   m_EditorClassIdentifier: 
-  actionName: 
-  category: 0
-  targetable: 0
+  actionName: Shield Bash
+  category: 1
+  targetable: 2
   targetType: 0
   damage:
     timing: 0
-    type: 0
-    magnitude: 0
+    type: 1
+    magnitude: 2
     flatDamage: 0

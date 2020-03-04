@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -53,8 +53,34 @@ public class SkillButtonLister : MonoBehaviour
     /// Creates Buttons for the first four skills that the Combatant has.
     /// </summary>
     /// <param name="combatant"></param>
-    public void ListSkills(Combatant combatant){
+    public void ListSkills(Combatant combatant, Skill.MENU_CATEGORY category = Skill.MENU_CATEGORY.NONE){
         currentSkills = combatant.GetSkills();
+        if (currentSkills == null)
+        {
+            Debug.LogError(string.Format("Combatant {0} has no set skills!", combatant.GetName()));
+            return;
+        }
+        if (category != Skill.MENU_CATEGORY.NONE)
+        {
+            IEnumerable<Skill> filtered_skills = currentSkills.Where( (x) => 
+            {
+                // I could replace this with a single boolean expression,
+                // but this looks easier to read.
+                if (x != null) {
+                    return x.category == category;
+                }
+                return false;
+            });
+            if (filtered_skills.Count<Skill>() == 0)
+            {
+                Debug.LogWarning(string.Format("Combatant {0} has no {1} skills!", combatant.GetName(), category));
+                return;
+            }
+            else
+            {
+                currentSkills = filtered_skills.ToList<Skill>();
+            }
+        }
         int skillNum = Mathf.Min(MAX_BUTTON_NUM, currentSkills.Count);
         
         for(int i = 0; i < skillNum; i++){
@@ -64,6 +90,7 @@ public class SkillButtonLister : MonoBehaviour
                 Button buttonComponent = skillButton.gameObject.GetComponent<Button>();
                 buttonComponent.onClick.AddListener(skillButton.SetActionBuilderUISkill);
                 skillButton.gameObject.SetActive(true);
+                buttonComponent.Select();
             }else{
                 Debug.LogError("Out of SkillButtons from pool!");
             }
