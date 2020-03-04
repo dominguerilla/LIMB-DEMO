@@ -37350,7 +37350,7 @@ MonoBehaviour:
     m_ActionId: 71e92a06-88bf-400b-9182-3484f4277edf
     m_ActionName: Battle UI/Start[/DualShock4GamepadHID/start]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Controller
   m_DefaultActionMap: Battle UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -42068,6 +42068,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 71e92a06-88bf-400b-9182-3484f4277edf
     m_ActionName: Battle UI/Start[/DualShock4GamepadHID/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: be7a2114-8f10-4e57-a41a-d70267972383
+    m_ActionName: Battle UI/Start[/DualShock4GamepadHID/start,/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Battle UI
