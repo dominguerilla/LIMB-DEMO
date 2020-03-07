@@ -1,6 +1,6 @@
 ## Blender
 *.pyc
-*.blend[1-9]
+*.blend?
 __pycache__
 /dist/
 
