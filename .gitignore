@@ -1,3 +1,9 @@
+## Blender
+*.pyc
+*.blend[1-9]
+__pycache__
+/dist/
+
 ## Bolt
 
 # This is the subfolder needed only for installation from the Asset Store.
