@@ -5539,7 +5539,7 @@ GameObject:
   - component: {fileID: 6046717620707311713}
   - component: {fileID: 1626069314725888443}
   m_Layer: 0
-  m_Name: Goblin Monk
+  m_Name: Goblin Monk Combatant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5552,15 +5552,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7327664987160982130}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.395041, y: 7, z: -18.059559}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029504295}
+  m_LocalPosition: {x: 0.013667911, y: -0.52, z: -4.643606}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1017123841509853570}
   - {fileID: 3483272851137487912}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
 --- !u!95 &1626069314725888443
 Animator:
   serializedVersion: 3
