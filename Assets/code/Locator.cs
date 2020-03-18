@@ -25,8 +25,8 @@ public class Locator
 
     public static (Combatant[], Combatant[]) GetCombatants(){
         if(battleManager != null){
-            return (battleManager.GetLeftCombatants().ToArray(),
-                battleManager.GetRightCombatants().ToArray());
+            return (battleManager.GetCombatantTeam1().ToArray(),
+                battleManager.GetCombatantTeam2().ToArray());
         }
         return (null, null);
     }

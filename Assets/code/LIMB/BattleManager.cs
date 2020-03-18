@@ -4,6 +4,10 @@ using UnityEngine;
 
 using UnityEngine.Events;
 using LIMB;
+
+/// <summary>
+/// Used to control the flow of battle.
+/// </summary>
 public class BattleManager : MonoBehaviour {
 
     [SerializeField]
@@ -16,19 +20,25 @@ public class BattleManager : MonoBehaviour {
     UnityEvent onActionExecuted;
 
     bool inBattle;
-    List<Combatant> lCombatants, rCombatants;
+    List<Combatant> combatantTeam1, combatantTeam2;
 
     // Sorted by descending SPEED.
     Queue<Combatant> allCombatants;
     Combatant currentCombatant;
 
-    public void StartBattle(NPCParty leftParty, NPCParty rightParty){
+    /// <summary>
+    /// Given two NPCParty objects, create two Lists of Combatants representing two 'teams' in battle against each other.
+    /// Sorts the list of all combatants by their SPEED stat.
+    /// </summary>
+    /// <param name="team1"></param>
+    /// <param name="team2"></param>
+    public void StartBattle(NPCParty team1, NPCParty team2){
         if(!inBattle){
             inBattle = true;
-            lCombatants = GenerateCombatants(leftParty);
-            rCombatants = GenerateCombatants(rightParty);
+            combatantTeam1 = GenerateCombatants(team1);
+            combatantTeam2 = GenerateCombatants(team2);
 
-            IEnumerable<Combatant> sortedCombatants = lCombatants.Concat<Combatant>(rCombatants);
+            IEnumerable<Combatant> sortedCombatants = combatantTeam1.Concat<Combatant>(combatantTeam2);
             sortedCombatants = sortedCombatants.OrderByDescending(c => c.GetRawStat(Stats.STAT.SPEED));
             allCombatants = new Queue<Combatant>(sortedCombatants);
             
@@ -40,11 +50,14 @@ public class BattleManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Resets the state of the BattleManager.
+    /// </summary>
     public void EndBattle(){
         if(inBattle){
             inBattle = false;
-            lCombatants = null;
-            rCombatants = null;
+            combatantTeam1 = null;
+            combatantTeam2 = null;
             allCombatants = null;
             currentCombatant = null;
             onBattleEnd.Invoke();
@@ -80,14 +93,14 @@ public class BattleManager : MonoBehaviour {
         return currentCombatant;
     }
 
-    public List<Combatant> GetLeftCombatants() {
-        if(!inBattle) Debug.LogError("Cannot get Left Combatants; not in battle!");
-        return this.lCombatants;
+    public List<Combatant> GetCombatantTeam1() {
+        if(!inBattle) Debug.LogError("Cannot get Combatant Team 1; not in battle!");
+        return this.combatantTeam1;
     }
 
-    public List<Combatant> GetRightCombatants() {
-        if(!inBattle) Debug.LogError("Cannot get Right Combatants; not in battle!");
-        return this.rCombatants;
+    public List<Combatant> GetCombatantTeam2() {
+        if(!inBattle) Debug.LogError("Cannot get Combatant Team 2; not in battle!");
+        return this.combatantTeam2;
     }
     
     /// <summary>
@@ -101,7 +114,7 @@ public class BattleManager : MonoBehaviour {
         if(!inBattle) return false;
 
         bool canPartyContinue = false;
-        foreach(Combatant combatant in this.lCombatants){
+        foreach(Combatant combatant in this.combatantTeam1){
             if(combatant.IsAlive()){
                 canPartyContinue = true;
             }
@@ -111,7 +124,7 @@ public class BattleManager : MonoBehaviour {
         }
 
         canPartyContinue = false;
-        foreach(Combatant combatant in this.rCombatants){
+        foreach(Combatant combatant in this.combatantTeam2){
             if(combatant.IsAlive()){
                 canPartyContinue = true;
             }
