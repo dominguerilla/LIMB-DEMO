@@ -198,8 +198,8 @@ public class EquipmentTest {
         Equipment mask = ScriptableObject.CreateInstance<Equipment>();
 
         Limb face = new Limb("Face");
-        
-        cData.SetName("Ordinary guy");
+
+        cData.InitializeData("Ordinary guy", new List<StatValue>(), null);
         cData.SetAnatomy(face);
 
         com = new Combatant(cData);

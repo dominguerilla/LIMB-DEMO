@@ -30,7 +30,7 @@ namespace LIMB {
             int count = 5;
             Combatant[] party = new Combatant[count];
             for (int i = 0; i < count; i++){
-                Combatant combatant = new Combatant(null);
+                Combatant combatant = new Combatant(combatantData: null);
                 party[i] = combatant;
             }
             Debug.Log("Left party: " + party.Length);
@@ -41,7 +41,7 @@ namespace LIMB {
             int count = 4;
             Combatant[] party = new Combatant[count];
             for (int i = 0; i < count; i++){
-                Combatant combatant = new Combatant(null);
+                Combatant combatant = new Combatant(combatantData: null);
                 party[i] = combatant;
             }
             Debug.Log("Right party: " + party.Length);

@@ -42,8 +42,9 @@ namespace LIMB {
         /// <summary>
         /// Used for testing.
         /// </summary>
-        public Combatant() {
+        public Combatant(string name) {
             this.combatantData = ScriptableObject.CreateInstance<CombatantData>();
+            this.combatantData.InitializeData(name, new List<StatValue>(), new List<Limb>());
             this.currentHealth = 100;
         }
 
