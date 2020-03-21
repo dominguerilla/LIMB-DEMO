@@ -113,5 +113,43 @@ namespace Tests
                 Assert.Fail();
             }
         }
+
+        [Test]
+        public void GetRandomAlliedCombatantFailure()
+        {
+            try
+            {
+                bm.StartBattle(cp1, cp2);
+                List<Combatant> targetList = ai.GetRandomTargets(foo, Skill.TARGETABLE.ALLIES, Skill.TARGET_TYPE.SINGLE);
+                Assert.Fail();
+            }
+            catch (System.InvalidOperationException)
+            {
+                Assert.Pass();
+            }
+            catch (System.Exception)
+            {
+                Assert.Fail();
+            }
+        }
+
+        [Test]
+        public void GetRandomEnemyCombatantFailure()
+        {
+            try
+            {
+                bm.StartBattle(cp1, cp2);
+                List<Combatant> targetList = ai.GetRandomTargets(foo, Skill.TARGETABLE.ENEMIES, Skill.TARGET_TYPE.SINGLE);
+                Assert.Fail();
+            }
+            catch (System.InvalidOperationException)
+            {
+                Assert.Pass();
+            }
+            catch (System.Exception)
+            {
+                Assert.Fail();
+            }
+        }
     }
 }
