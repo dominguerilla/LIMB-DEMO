@@ -186,4 +186,27 @@ public class BattleManager : MonoBehaviour {
             return null;
         }
     }
+
+    /// <summary>
+    /// Returns 0 if combatant is on team 1, 1 if on team 2.
+    /// If on neither team or not in battle, will throw InvalidOperationException.
+    /// </summary>
+    /// <param name="combatant"></param>
+    /// <returns></returns>
+    public int GetTeamIndex(Combatant combatant)
+    {
+        if (!inBattle) throw new System.InvalidOperationException("Not in battle!");
+        if (combatantTeam1.Contains(combatant))
+        {
+            return 0;
+        }
+        else if (combatantTeam2.Contains(combatant))
+        {
+            return 1;
+        }
+        else
+        {
+            throw new System.InvalidOperationException(string.Format("Combatant {0} is not in battle!", combatant.GetName()));
+        }
+    }
 }

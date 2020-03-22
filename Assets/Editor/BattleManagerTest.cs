@@ -58,6 +58,32 @@ namespace Tests
             Assert.IsNull(team);
         }
 
+        [Test]
+        public void GetTeamIndexSuccess()
+        {
+            Combatant foo = new Combatant("FOO");
+            cp1.Add(foo);
+            bm.StartBattle(cp1, cp2);
+            int index = bm.GetTeamIndex(foo);
+            Assert.IsTrue(index == 0);
+        }
+
+        [Test]
+        public void GetTeamIndexFailure()
+        {
+            try
+            {
+                Combatant foo = new Combatant("FOO");
+                bm.StartBattle(cp1, cp2);
+                int index = bm.GetTeamIndex(foo);
+                Assert.Fail();
+            }
+            catch (System.InvalidOperationException)
+            {
+                Assert.Pass();
+            }
+        }
+
         List<Combatant> CreateCombatantParty(string namePrefix, int numMembers)
         {
             List<Combatant> party = new List<Combatant>();
