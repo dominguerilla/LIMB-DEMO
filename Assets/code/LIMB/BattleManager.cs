@@ -11,13 +11,13 @@ using LIMB;
 public class BattleManager : MonoBehaviour {
 
     [SerializeField]
-    UnityEvent onBattleStart;
+    UnityEvent onBattleStart = new UnityEvent();
 
     [SerializeField]
-    UnityEvent onBattleEnd;
+    UnityEvent onBattleEnd = new UnityEvent();
 
     [SerializeField]
-    UnityEvent onActionExecuted;
+    UnityEvent onActionExecuted = new UnityEvent();
 
     bool inBattle;
     List<Combatant> combatantTeam1, combatantTeam2;
@@ -45,6 +45,23 @@ public class BattleManager : MonoBehaviour {
             /*foreach(Combatant c in allCombatants){
                 Debug.Log(c + "; SPEED " + c.GetRawStat(Stats.STAT.SPEED));
             }*/
+            onBattleStart.Invoke();
+            Debug.Log("Battle started!");
+        }
+    }
+
+    public void StartBattle(List<Combatant> team1, List<Combatant> team2)
+    {
+        if (!inBattle)
+        {
+            inBattle = true;
+            combatantTeam1 = team1;
+            combatantTeam2 = team2;
+
+            IEnumerable<Combatant> sortedCombatants = combatantTeam1.Concat<Combatant>(combatantTeam2);
+            sortedCombatants = sortedCombatants.OrderByDescending(c => c.GetRawStat(Stats.STAT.SPEED));
+            allCombatants = new Queue<Combatant>(sortedCombatants);
+
             onBattleStart.Invoke();
             Debug.Log("Battle started!");
         }
@@ -136,5 +153,60 @@ public class BattleManager : MonoBehaviour {
     public bool isInBattle()
     {
         return inBattle;
+    }
+
+    public List<Combatant> GetAlliedTeam(Combatant combatant)
+    {
+        if (combatantTeam1.Contains(combatant))
+        {
+            return combatantTeam1;
+        }
+        else if (combatantTeam2.Contains(combatant))
+        {
+            return combatantTeam2;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public List<Combatant> GetEnemyTeam(Combatant combatant)
+    {
+        if (combatantTeam1.Contains(combatant))
+        {
+            return combatantTeam2;
+        }
+        else if (combatantTeam2.Contains(combatant))
+        {
+            return combatantTeam1;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// Returns 0 if combatant is on team 1, 1 if on team 2.
+    /// If on neither team or not in battle, will throw InvalidOperationException.
+    /// </summary>
+    /// <param name="combatant"></param>
+    /// <returns></returns>
+    public int GetTeamIndex(Combatant combatant)
+    {
+        if (!inBattle) throw new System.InvalidOperationException("Not in battle!");
+        if (combatantTeam1.Contains(combatant))
+        {
+            return 0;
+        }
+        else if (combatantTeam2.Contains(combatant))
+        {
+            return 1;
+        }
+        else
+        {
+            throw new System.InvalidOperationException(string.Format("Combatant {0} is not in battle!", combatant.GetName()));
+        }
     }
 }
