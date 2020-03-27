@@ -11,31 +11,11 @@ namespace LIMB {
     public class ImageFader : MonoBehaviour {
 
         [SerializeField]
-        GameObject commandUI;
-        [SerializeField]
         float fadeSpeed = 0.85f;
         [SerializeField]
         Image battleStartFadeImage;
         [SerializeField]
         Image battleEndFadeImage;
-
-        private void Start() {
-            SceneTransitioner transitioner = GetComponent<SceneTransitioner>();
-            if(transitioner) {
-                transitioner.OnBattleStart.AddListener(EnableUI);
-                transitioner.OnBattleEnd.AddListener(DisableUI);
-            }else {
-                Debug.LogError("Unable to find SceneTransitioner in gameObject " + gameObject.name);
-            }
-        }
-
-        public void EnableUI() {
-            commandUI.SetActive(true);
-        }
-
-        public void DisableUI() {
-            commandUI.SetActive(false);
-        }
 
         public IEnumerator BattleStartFadeOut() {
             yield return StartCoroutine(FadeImage(battleStartFadeImage, 1.0f));

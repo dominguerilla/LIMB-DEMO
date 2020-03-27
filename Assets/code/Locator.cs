@@ -7,18 +7,6 @@ public class Locator
 {
     private static BattleManager battleManager;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public static void Provide(BattleManager bm){
         battleManager = bm;
     }
@@ -29,5 +17,10 @@ public class Locator
                 battleManager.GetCombatantTeam2().ToArray());
         }
         return (null, null);
+    }
+
+    public static BattleManager GetBattleManager()
+    {
+        return battleManager;
     }
 }

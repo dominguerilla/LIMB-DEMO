@@ -11,13 +11,13 @@ using LIMB;
 public class BattleManager : MonoBehaviour {
 
     [SerializeField]
-    UnityEvent onBattleStart = new UnityEvent();
+    public UnityEvent onBattleStart = new UnityEvent();
 
     [SerializeField]
-    UnityEvent onBattleEnd = new UnityEvent();
+    public UnityEvent onBattleEnd = new UnityEvent();
 
     [SerializeField]
-    UnityEvent onActionExecuted = new UnityEvent();
+    public UnityEvent onActionExecuted = new UnityEvent();
 
     bool inBattle;
     List<Combatant> combatantTeam1, combatantTeam2;
