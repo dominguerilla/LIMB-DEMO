@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Human Knight
   m_EditorClassIdentifier: 
   combatantName: Human Knight
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 2110869358997129477, guid: 917c123c116a8bd48844f07c0b779cd5,
+    type: 3}
   baseStats: []
   anatomy: []
   innateSkills:

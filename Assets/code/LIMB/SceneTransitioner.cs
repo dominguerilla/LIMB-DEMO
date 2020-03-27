@@ -12,7 +12,7 @@ namespace LIMB {
     public class SceneTransitioner : MonoBehaviour {
         
         public Transform scenePosition;
-        BattleUI ui;
+        ImageFader ui;
         
         /// <summary>
         /// Called whenever a battle starts.
@@ -49,7 +49,7 @@ namespace LIMB {
             BeginTransitionStarted = new UnityEvent();
             EndTransitionStarted = new UnityEvent();
            
-            ui = GetComponent<BattleUI>();
+            ui = GetComponent<ImageFader>();
         }
 
         public void CreateBattleScene(Combatant[] leftParty, Combatant[] rightParty, GameObject battleScene, Camera returnCam = null, Light returnLight = null){

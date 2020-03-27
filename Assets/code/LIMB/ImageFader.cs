@@ -8,7 +8,7 @@ namespace LIMB {
     /// Handles the UI portions of battles.
     /// Fading in/out, getting input from clicks and handing over to battle manager, etc 
     /// </summary>
-    public class BattleUI : MonoBehaviour {
+    public class ImageFader : MonoBehaviour {
 
         [SerializeField]
         GameObject commandUI;
