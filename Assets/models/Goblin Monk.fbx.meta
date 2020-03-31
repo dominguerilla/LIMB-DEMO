@@ -4,20 +4,18 @@ ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
-      74: -9045450172594925430
-    second: monk|combat-idle
+      74: 8184966006071986659
+    second: Goblin Female Rig|Battle Spawn
   - first:
-      74: -7361427651036151181
-    second: monk|Idle
+      74: 3250035010255182315
+    second: Goblin Female Rig|Combat Idle
   - first:
-      74: -1186175002919557899
-    second: monk|run
-  externalObjects:
+      74: 8962041798175835236
+    second: Goblin Female Rig|Idle
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: voodoohead_Alt2.001
-    second: {fileID: 2100000, guid: 97de4dacd868fae4aa0b47705844ae30, type: 2}
+      74: 7573122489559813651
+    second: Goblin Female Rig|run
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -46,8 +44,37 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: monk|combat-idle
-      takeName: rig|combat-idle
+      name: Goblin Female Rig|Battle Spawn
+      takeName: Goblin Female Rig|Battle Spawn
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Goblin Female Rig|Combat Idle
+      takeName: Goblin Female Rig|Combat Idle
       internalID: 0
       firstFrame: 0
       lastFrame: 40
@@ -75,8 +102,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: monk|Idle
-      takeName: rig|Idle
+      name: Goblin Female Rig|Idle
+      takeName: Goblin Female Rig|Idle
       internalID: 0
       firstFrame: 0
       lastFrame: 59
@@ -104,8 +131,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: monk|run
-      takeName: rig|run
+      name: Goblin Female Rig|run
+      takeName: Goblin Female Rig|run
       internalID: 0
       firstFrame: 0
       lastFrame: 20

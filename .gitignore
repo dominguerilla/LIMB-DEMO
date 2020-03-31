@@ -3,6 +3,7 @@
 *.blend?
 __pycache__
 /dist/
+*.blend1.meta
 
 ## Bolt
 
