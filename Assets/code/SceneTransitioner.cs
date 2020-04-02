@@ -55,7 +55,7 @@ public class SceneTransitioner : MonoBehaviour {
 
     private void Start()
     {
-        InitializeImageFader();
+        iFader = GetComponent<ImageFader>();
         BattleManager bm = Locator.GetBattleManager();
         bm.onBattleStart.AddListener(CreateBattleScene);
         bm.onBattleEnd.AddListener(DestroyBattleScene);
@@ -69,11 +69,6 @@ public class SceneTransitioner : MonoBehaviour {
 
     public void CreateBattleScene(Combatant[] leftParty, Combatant[] rightParty, GameObject battleScene, Camera returnCam = null, Light returnLight = null){
         StartCoroutine(InitializeBattleScene(leftParty, rightParty, battleScene, returnCam, returnLight));
-    }
-
-    void InitializeImageFader()
-    {
-        iFader = GetComponent<ImageFader>();
     }
 
     // TODO Make it so that it initializes a battle scene that already exists in the Scene.
