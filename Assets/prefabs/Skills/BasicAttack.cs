@@ -19,7 +19,12 @@ namespace LIMB {
         }
 
         public override void Execute(Combatant actor, Combatant target) {
+            CombatantAnimator actorAnim = actor.GetGameObject().GetComponent<CombatantAnimator>() ;
+            CombatantAnimator targetAnim = target.GetGameObject().GetComponent<CombatantAnimator>();
+
             target.InflictDamage(damage);
+            if (actorAnim) actorAnim.TriggerAnimation("LightAttack");
+            if (targetAnim) targetAnim.TriggerAnimation("OnHurt");
         }
     }
 }

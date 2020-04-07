@@ -161,6 +161,9 @@ namespace LIMB {
         public float GetCurrentHealth() {
             return this.currentHealth;
         }
+        public GameObject GetGameObject() {
+            return this.combatantGO;
+        }
 
         public void SetGameObject(GameObject GO) {
             this.combatantGO = GO;
