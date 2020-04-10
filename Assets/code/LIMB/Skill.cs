@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace LIMB {
     /// <summary>
@@ -9,6 +10,7 @@ namespace LIMB {
     public abstract class Skill : ScriptableObject{
         
         public string actionName;
+        public delegate void onFinishCallback();
 
         /// <summary>
         /// Specifies the UI menu that this action should belong to
@@ -66,7 +68,6 @@ namespace LIMB {
         /// Change the state of the actor/target combatants. 
         /// Do the damage calculation here.
         /// </summary>
-        public abstract void Execute(Combatant actor, Combatant target);
-        
+        public abstract IEnumerator Execute(Combatant actor, Combatant target, onFinishCallback callback);
     }
 }

@@ -27,7 +27,7 @@ namespace Tests
 
             Action attackAction = new Action(hero, attack, goblin);
             float startingHealth = goblin.GetCurrentHealth();
-            attackAction.Execute();
+            attackAction.Execute(null);
             Assert.Less(goblin.GetCurrentHealth(), startingHealth);            
         }
 
@@ -42,7 +42,7 @@ namespace Tests
 
             Action finisher = new Action(hero, finisher_move, enemy);
             float startingHealth = enemy.GetCurrentHealth();
-            finisher.Execute();
+            finisher.Execute(null);
             Assert.AreEqual(startingHealth, enemy.GetCurrentHealth());
         }
 

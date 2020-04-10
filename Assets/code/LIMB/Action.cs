@@ -13,6 +13,7 @@ namespace LIMB {
         Combatant actor;
         Combatant[] registeredTargets;
 
+
         public Action() {
 
         }
@@ -23,10 +24,10 @@ namespace LIMB {
             this.registeredTargets = registeredTargets;
         }
 
-        public void Execute() {
+        public IEnumerator Execute(Skill.onFinishCallback callback) {
             foreach(Combatant target in registeredTargets) {
                 if(skill.CanTarget(actor, target)) {
-                    skill.Execute(actor, target);
+                    yield return skill.Execute(actor, target, callback);
                 }
             }
         }

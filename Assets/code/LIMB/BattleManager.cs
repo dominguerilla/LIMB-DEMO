@@ -10,13 +10,10 @@ using LIMB;
 /// </summary>
 public class BattleManager : MonoBehaviour {
 
-    [SerializeField]
     public UnityEvent onBattleStart = new UnityEvent();
 
-    [SerializeField]
     public UnityEvent onBattleEnd = new UnityEvent();
 
-    [SerializeField]
     public UnityEvent onActionExecuted = new UnityEvent();
 
     bool inBattle;
@@ -83,9 +80,8 @@ public class BattleManager : MonoBehaviour {
     }
     
     public void ExecuteAction(Action action) {
-        action.Execute();
-        Debug.Log("Action executed: " + action.ToString());
-        onActionExecuted.Invoke();
+        StartCoroutine(action.Execute(onActionExecuted.Invoke));
+        Debug.Log("Action executing: " + action.ToString());
     }
 
     List<Combatant> GenerateCombatants(NPCParty party){
