@@ -35,6 +35,7 @@ public class MockSkill : Skill {
         if(execute != null) {
             execute.Invoke(actor,target);
         }
+        callback.Invoke();
         yield return null;
     }
 }
