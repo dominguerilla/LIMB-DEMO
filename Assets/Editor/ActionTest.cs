@@ -50,34 +50,5 @@ namespace Tests
             finisher.Execute(delegate { Assert.AreEqual(startingHealth, enemy.GetCurrentHealth()); });
             
         }
-
-        [Test]
-        public void HeroCantCastSkillOnExecute()
-        {
-            Combatant hero = new Combatant("Hero");
-            Combatant enemy = new Combatant("Enemy");
-            MockSkill uncastableSkill = CreateMockSkill();
-
-            Assert.Fail();
-        }
-
-        [Test]
-        public void HeroCantTargetSkillOnExecute()
-        {
-            Assert.Fail();
-        }
-
-        [Test]
-        public void AssertCanBeCastCalledWhenExecuted()
-        {
-            Assert.Fail();
-        }
-
-        [Test]
-        public void AssertCanTargetCalledWhenExecuted()
-        {
-            Assert.Fail();
-        }
-
     }
 }
