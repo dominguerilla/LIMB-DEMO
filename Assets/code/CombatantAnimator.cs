@@ -12,6 +12,10 @@ public class CombatantAnimator : MonoBehaviour
     {
         startingPosition = this.transform.position;
         anim = this.GetComponent<Animator>();
+        if (!anim)
+        {
+            anim = GetComponentInChildren<Animator>();
+        }
     }
 
     public void TriggerAnimation(string animationName)
