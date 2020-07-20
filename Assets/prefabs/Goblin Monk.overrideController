@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Goblin Monk
+  m_Controller: {fileID: 9100000, guid: b7406bac796017a4089f4454c160901d, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -3738035077149659878, guid: 86b65224a5a5aff4f9b926c948406def,
+      type: 3}
+    m_OverrideClip: {fileID: -2879734475350445881, guid: 86b65224a5a5aff4f9b926c948406def,
+      type: 3}
+  - m_OriginalClip: {fileID: 5025310198937334613, guid: 86b65224a5a5aff4f9b926c948406def,
+      type: 3}
+    m_OverrideClip: {fileID: -2291654014711805107, guid: 86b65224a5a5aff4f9b926c948406def,
+      type: 3}
+  - m_OriginalClip: {fileID: -1316204398828900531, guid: 86b65224a5a5aff4f9b926c948406def,
+      type: 3}
+    m_OverrideClip: {fileID: 7057487850758103146, guid: 86b65224a5a5aff4f9b926c948406def,
+      type: 3}
