@@ -19,11 +19,9 @@ namespace LIMB {
         }
 
         public override IEnumerator Execute(Combatant actor, Combatant target, onFinishCallback callback) {
-            CombatantAnimator actorAnim = actor.GetGameObject().GetComponent<CombatantAnimator>();
-            CombatantAnimator targetAnim = target.GetGameObject().GetComponent<CombatantAnimator>();
 
-            if (actorAnim) actorAnim.TriggerAnimation("LightAttack");
-            if (targetAnim) targetAnim.TriggerAnimation("OnHurt");
+            actor.PlayAnimation("LightAttack");
+            target.PlayAnimation("OnHurt");
             target.InflictDamage(damage);
             Debug.Log("Basic Attack finished!");
             yield return new WaitForSeconds(1f);
