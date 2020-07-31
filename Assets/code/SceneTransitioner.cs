@@ -94,7 +94,6 @@ public class SceneTransitioner : MonoBehaviour {
         }
 
         SpawnParties(newScene, party1, party2);
-
         BeginTransitionStarted.Invoke();
         yield return StartCoroutine(iFader.BattleStartFadeIn());
         OnBattleStart.Invoke();
@@ -161,8 +160,6 @@ public class SceneTransitioner : MonoBehaviour {
                 parent );
             combatant.SetGameObject(newObj);
             combatant.InitializeCombatantComponents();
-            BeginTransitionStarted.AddListener(delegate { combatant.PlayAnimation("OnSpawn"); });
-            EndTransitionStarted.AddListener(delegate { combatant.PlayAnimation("OnDeath"); });
         }
     }
 }
