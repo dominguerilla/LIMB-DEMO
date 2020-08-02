@@ -7,7 +7,8 @@ using System;
 
 public class Heal : Skill
 {
-    public override void Execute(Combatant actor, Combatant target) {
+    public override IEnumerator Execute(Combatant actor, Combatant target, onFinishCallback callback) {
         target.ChangeHealth(10f);
+        yield return null;
     }
 }

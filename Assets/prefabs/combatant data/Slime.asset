@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Slime
   m_EditorClassIdentifier: 
   combatantName: Slime
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 4264423259276783744, guid: e44f71c404ce9394eaef1af0994b3072,
+    type: 3}
   baseStats: []
   anatomy: []
   innateSkills:

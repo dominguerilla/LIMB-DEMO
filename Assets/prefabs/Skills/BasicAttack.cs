@@ -18,8 +18,14 @@ namespace LIMB {
             return false;
         }
 
-        public override void Execute(Combatant actor, Combatant target) {
+        public override IEnumerator Execute(Combatant actor, Combatant target, onFinishCallback callback) {
+
+            actor.PlayAnimation("LightAttack");
+            target.PlayAnimation("OnHurt");
             target.InflictDamage(damage);
+            Debug.Log("Basic Attack finished!");
+            yield return new WaitForSeconds(1f);
+            callback.Invoke();
         }
     }
 }

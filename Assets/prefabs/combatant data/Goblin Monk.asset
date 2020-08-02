@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Goblin Monk
   m_EditorClassIdentifier: 
   combatantName: Goblin Monk
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 7327664987160982130, guid: 5f2727d95c4cc7f43aa76977b207aa84,
+    type: 3}
   baseStats: []
   anatomy: []
   innateSkills:

@@ -25,7 +25,7 @@ namespace LIMB {
 
         // fields relating to GameObject and components
         GameObject combatantGO;
-        Animator anim;
+        CombatantAnimator anim;
         bool isAlive = true;
         float currentHealth;
 
@@ -54,7 +54,7 @@ namespace LIMB {
             if(!combatantGO) {
                 Debug.LogError("Combatant does not have associated GameObject!");
             }else {
-                this.anim = combatantGO.GetComponent<Animator>();
+                this.anim = combatantGO.GetComponent<CombatantAnimator>();
             }
         }
 
@@ -151,7 +151,8 @@ namespace LIMB {
         }
 
         public void PlayAnimation(string trigger) {
-            this.anim.SetTrigger(trigger);
+            if (this.anim) this.anim.TriggerAnimation(trigger);
+            else Debug.LogError($"Combatant {combatantGO.name} has no CombatantAnimator!");
         }
 
         public CombatantData GetData(){
@@ -160,6 +161,9 @@ namespace LIMB {
 
         public float GetCurrentHealth() {
             return this.currentHealth;
+        }
+        public GameObject GetGameObject() {
+            return this.combatantGO;
         }
 
         public void SetGameObject(GameObject GO) {

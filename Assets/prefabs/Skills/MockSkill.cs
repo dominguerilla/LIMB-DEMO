@@ -31,9 +31,11 @@ public class MockSkill : Skill {
         }
     }
 
-    public override void Execute(Combatant actor, Combatant target) {
+    public override IEnumerator Execute(Combatant actor, Combatant target, onFinishCallback callback) {
         if(execute != null) {
             execute.Invoke(actor,target);
         }
+        callback.Invoke();
+        yield return null;
     }
 }

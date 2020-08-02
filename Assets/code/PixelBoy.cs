@@ -6,14 +6,21 @@ using System.Collections;
  
 [ExecuteInEditMode]
 [AddComponentMenu("Image Effects/PixelBoy")]
+[RequireComponent(typeof(Camera))]
 public class PixelBoy : MonoBehaviour
 {
     public int w = 720;
+    Camera cam;
     int h;
+
+    private void Awake()
+    {
+        cam = GetComponent<Camera>();
+    }
 
     void Update() {
  
-        float ratio = ((float)Camera.main.pixelHeight / (float)Camera.main.pixelWidth);
+        float ratio = ((float)cam.pixelHeight / (float)cam.pixelWidth);
         h = Mathf.RoundToInt(w * ratio);
        
     }
