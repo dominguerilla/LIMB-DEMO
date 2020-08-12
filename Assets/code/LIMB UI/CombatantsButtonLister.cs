@@ -65,6 +65,7 @@ public class CombatantsButtonLister : MonoBehaviour
         
         if(skill.targetType == Skill.TARGET_TYPE.SINGLE){
             for(int i = 0; i < targetNum; i++){
+                if (!skill.CanTarget(user, possibleTargets[i])) continue;
                 CombatantsButton combatantsButton = PopButton();
                 if(combatantsButton){
                     CreateButton(combatantsButton, possibleTargets[i]);
