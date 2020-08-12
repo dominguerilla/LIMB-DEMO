@@ -102,7 +102,11 @@ public class BattleManager : MonoBehaviour {
         if(currentCombatant != null){
             allCombatants.Enqueue(currentCombatant);
         }
-        currentCombatant = allCombatants.Dequeue();
+        do
+        {
+            currentCombatant = allCombatants.Dequeue();
+        } while (!currentCombatant.IsAlive());
+
         return currentCombatant;
     }
 
