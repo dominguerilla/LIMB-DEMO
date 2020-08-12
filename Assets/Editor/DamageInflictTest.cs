@@ -34,7 +34,7 @@ public class DamageInflictTest {
         dmg = new Damage(Damage.TIMING.INSTANT, Damage.TYPE.BLUNT, Damage.MAGNITUDE.FLAT, 1.0f );
         float originalHealth = comb.GetCurrentHealth();
 
-        comb.InflictDamage(dmg);
+        comb.InflictDamage(dmg, comb);
 
         // Use the Assert class to test conditions.
         Assert.Less(comb.GetCurrentHealth(), originalHealth);
@@ -64,8 +64,8 @@ public class DamageInflictTest {
         comb = new Combatant(combData);
         dmg = new Damage(Damage.TIMING.INSTANT, Damage.TYPE.BLUNT, Damage.MAGNITUDE.FLAT, 10.0f);
 
-        float coreDamage = comb.InflictDamage(dmg, "Head");
-        float bodyDamage = comb.InflictDamage(dmg, "Body");
+        float coreDamage = comb.InflictDamage(dmg, comb, "Head");
+        float bodyDamage = comb.InflictDamage(dmg, comb, "Body");
 
         Assert.Less(bodyDamage, coreDamage);
 

@@ -17,7 +17,7 @@ public class DamageTester : MonoBehaviour {
 
     public void InflictDamage() {
         foreach(Damage dmg in damages) {
-            float totalDamage = combatant.InflictDamage(dmg, targetLimb);
+            float totalDamage = combatant.InflictDamage(dmg, combatant, targetLimb);
             Debug.Log("Inflicted " + totalDamage + " " + dmg.ToString() + " damage to combatant.");
         }
     }

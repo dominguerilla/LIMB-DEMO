@@ -57,11 +57,14 @@ namespace LIMB {
         /// </summary>
         /// <param name="dmg"></param>
         /// <returns></returns>
-        public static float CalculateDamageMagnitude(Damage dmg, Combatant inflictor = null) {
+        public static float CalculateDamageMagnitude(Damage dmg, Combatant inflictor) {
             float damageMagnitude = 0.0f;
             switch (dmg.magnitude) {
                 case Damage.MAGNITUDE.FLAT:
                     damageMagnitude = dmg.flatDamage;
+                    break;
+                case Damage.MAGNITUDE.MASSIVE:
+                    damageMagnitude = inflictor.GetRawStat(STAT.PHYS_ATK) * 10f + dmg.flatDamage;
                     break;
                 default:
                     Debug.LogError("Damage type " + dmg.magnitude.ToString() + " unsupported.");

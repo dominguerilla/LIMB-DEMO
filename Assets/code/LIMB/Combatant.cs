@@ -64,7 +64,7 @@ namespace LIMB {
         /// If inflictor is specified, will use its stats in the damage calculation.
         /// </summary>
         /// <returns>Net damage inflicted on this combatant.</returns>
-        public float InflictDamage(Damage dmg, string limbName = null, Combatant inflictor = null) {
+        public float InflictDamage(Damage dmg, Combatant inflictor, string limbName = null) {
             
             if(!isAlive) {
                 Debug.LogError(this.combatantData.GetName() + " is already dead! Attack: " + dmg.ToString());

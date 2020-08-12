@@ -28,7 +28,7 @@ namespace Tests
             Combatant hero = new Combatant("Hero");
             Combatant goblin = new Combatant("Goblin");
             MockSkill attack = CreateMockSkill();
-            attack.execute = (actor, target) => { target.InflictDamage(new Damage(10f)); };
+            attack.execute = (actor, target) => { target.InflictDamage(new Damage(10f), actor); };
 
             Action attackAction = new Action(hero, attack, goblin);
             float startingHealth = goblin.GetCurrentHealth();
@@ -43,7 +43,7 @@ namespace Tests
             MockSkill finisher_move = CreateMockSkill();
             finisher_move.canTarget = (actor, target, x, y) => { return false; };
             // This shouldn't execute.
-            finisher_move.execute = (actor, target) => { target.InflictDamage(new Damage(100f)); };
+            finisher_move.execute = (actor, target) => { target.InflictDamage(new Damage(100f), actor); };
 
             Action finisher = new Action(hero, finisher_move, enemy);
             float startingHealth = enemy.GetCurrentHealth();

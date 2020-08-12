@@ -22,7 +22,7 @@ namespace LIMB {
 
             actor.PlayAnimation("LightAttack");
             target.PlayAnimation("OnHurt");
-            target.InflictDamage(damage);
+            target.InflictDamage(damage, actor);
             Debug.Log("Basic Attack finished!");
             yield return new WaitForSeconds(1f);
             callback.Invoke();
