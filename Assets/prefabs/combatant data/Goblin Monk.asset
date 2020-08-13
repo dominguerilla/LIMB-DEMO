@@ -15,9 +15,12 @@ MonoBehaviour:
   combatantName: Goblin Monk
   modelPrefab: {fileID: 7327664987160982130, guid: 5f2727d95c4cc7f43aa76977b207aa84,
     type: 3}
-  baseStats: []
+  baseStats:
+  - Stat: 6
+    Value: 10
   anatomy: []
   innateSkills:
   - {fileID: 11400000, guid: 7dd6eba38f379dc4fb4b2f7b2cafd22e, type: 2}
   - {fileID: 11400000, guid: 0ebe99a2ea063e34db00481404225d8d, type: 2}
   - {fileID: 11400000, guid: d917f6488f5a58244be83fb0e89dfc98, type: 2}
+  - {fileID: 11400000, guid: c42208aa50c7cad4aa3bdc215399138d, type: 2}
