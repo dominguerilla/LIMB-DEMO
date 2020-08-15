@@ -21,8 +21,7 @@ namespace LIMB {
         public override IEnumerator Execute(Combatant actor, Combatant target, onFinishCallback callback) {
 
             actor.PlayAnimation("LightAttack");
-            target.PlayAnimation("OnHurt");
-            target.InflictDamage(damage, actor);
+            target.InflictDamageAndAnimate(damage, actor);
             Debug.Log("Basic Attack finished!");
             yield return new WaitForSeconds(1f);
             callback.Invoke();

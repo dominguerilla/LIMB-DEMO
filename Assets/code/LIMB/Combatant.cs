@@ -84,6 +84,19 @@ namespace LIMB {
 
             return totalDamage;
         }
+
+        public float InflictDamageAndAnimate(Damage dmg, Combatant inflictor, string limbName = null)
+        {
+            float beginningHealth = this.currentHealth;
+            float totalDamage = this.InflictDamage(dmg, inflictor, limbName);
+            if (totalDamage >= beginningHealth)
+            {
+                this.PlayAnimation("OnDie");
+            } else {
+                this.PlayAnimation("OnHurt");
+            }
+            return totalDamage;
+        }
         
         /// <summary>
         /// Will add healthDelta to this combatant's health, disregarding any resistances.
