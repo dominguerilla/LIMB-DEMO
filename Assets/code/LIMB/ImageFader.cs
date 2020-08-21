@@ -4,10 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace LIMB {
-    /// <summary>
-    /// Handles the UI portions of battles.
-    /// Fading in/out, getting input from clicks and handing over to battle manager, etc 
-    /// </summary>
     public class ImageFader : MonoBehaviour {
 
         [SerializeField]
