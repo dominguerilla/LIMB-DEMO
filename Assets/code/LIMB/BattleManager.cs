@@ -69,16 +69,40 @@ public class BattleManager : MonoBehaviour {
     /// </summary>
     public void EndBattle(){
         if(inBattle){
-            inBattle = false;
-            combatantTeam1 = null;
-            combatantTeam2 = null;
-            allCombatants = null;
-            currentCombatant = null;
-            onBattleEnd.Invoke();
-            Debug.Log("Battle ended!");
+            if (IsGameOver())
+            {
+                SetGameOver();
+            }
+            else
+            {
+                ResetManager();
+                onBattleEnd.Invoke();
+                Debug.Log("Battle ended!");
+            }
+
         }
     }
-    
+
+    void SetGameOver()
+    {
+        Debug.Log("GAME OVER!");
+        onBattleEnd.Invoke();
+    }
+
+    bool IsGameOver()
+    {
+        return !CanTeamContinue(this.combatantTeam1);
+    }
+
+    void ResetManager()
+    {
+        inBattle = false;
+        combatantTeam1 = null;
+        combatantTeam2 = null;
+        allCombatants = null;
+        currentCombatant = null;
+    }
+
     public void ExecuteAction(Action action) {
         StartCoroutine(action.Execute(onActionExecuted.Invoke));
         Debug.Log("Action executing: " + action.ToString());
@@ -110,6 +134,11 @@ public class BattleManager : MonoBehaviour {
         return currentCombatant;
     }
 
+    public Combatant GetCurrentCombatant()
+    {
+        return currentCombatant;
+    }
+
     public List<Combatant> GetCombatantTeam1() {
         if(!inBattle) Debug.LogError("Cannot get Combatant Team 1; not in battle!");
         return this.combatantTeam1;
@@ -130,23 +159,18 @@ public class BattleManager : MonoBehaviour {
     public bool CanContinueBattle(){
         if(!inBattle) return false;
 
+        return CanTeamContinue(this.combatantTeam1) && CanTeamContinue(this.combatantTeam2);
+    }
+
+    bool CanTeamContinue(List<Combatant> combatants) {
         bool canPartyContinue = false;
-        foreach(Combatant combatant in this.combatantTeam1){
-            if(combatant.IsAlive()){
+        foreach (Combatant combatant in combatants)
+        {
+            if (combatant.IsAlive())
+            {
                 canPartyContinue = true;
             }
         }
-        if(!canPartyContinue){
-            return false;
-        }
-
-        canPartyContinue = false;
-        foreach(Combatant combatant in this.combatantTeam2){
-            if(combatant.IsAlive()){
-                canPartyContinue = true;
-            }
-        }
-
         return canPartyContinue;
     }
 
