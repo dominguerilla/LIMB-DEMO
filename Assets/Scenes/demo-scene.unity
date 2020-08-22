@@ -975,7 +975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugMode: 0
   leftParty: {fileID: 11400000, guid: 528e047e4ede6b64db0f05ed0fee96e2, type: 2}
-  rightParty: {fileID: 11400000, guid: 408fa71ef414a18448aadf383c139bf4, type: 2}
+  rightParty: {fileID: 11400000, guid: a0f53be7e6cf60845bd75daeb7ac933a, type: 2}
 --- !u!1 &1772684460
 GameObject:
   m_ObjectHideFlags: 0

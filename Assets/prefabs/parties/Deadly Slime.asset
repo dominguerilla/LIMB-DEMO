@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42d5a4f8b6dc3274788142c186106e32, type: 3}
+  m_Name: Deadly Slime
+  m_EditorClassIdentifier: 
+  members:
+  - {fileID: 11400000, guid: c453a9c1e66ca5849916dfd0a69662ca, type: 2}
+  - {fileID: 11400000, guid: 3b3f539318a30264ea74ccdcaf30382b, type: 2}
+  - {fileID: 11400000, guid: c453a9c1e66ca5849916dfd0a69662ca, type: 2}

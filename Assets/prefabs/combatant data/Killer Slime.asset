@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1a222b717e75e747928e8935f116bf3, type: 3}
-  m_Name: Slime
+  m_Name: Killer Slime
   m_EditorClassIdentifier: 
-  combatantName: Slime
-  modelPrefab: {fileID: 4264423259276783744, guid: e44f71c404ce9394eaef1af0994b3072,
+  combatantName: Killer Slime
+  modelPrefab: {fileID: 2631120636978744801, guid: 2ba3ad2e44157e14da6bd00b50b7cfc4,
     type: 3}
   baseStats: []
   anatomy: []
   innateSkills:
-  - {fileID: 11400000, guid: 12f1d8f6e8ddb61468b20d8a836cdbe2, type: 2}
+  - {fileID: 11400000, guid: c42208aa50c7cad4aa3bdc215399138d, type: 2}
