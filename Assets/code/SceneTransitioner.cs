@@ -15,6 +15,18 @@ public class SceneTransitioner : MonoBehaviour {
 
     public GameObject battleScenePrefab;
     public Transform scenePosition;
+
+    /// <summary>
+    /// The name of the child GameObject in battleScenePrefab that holds Party 1 positions.
+    /// </summary>
+    [SerializeField] string party1PositionName = "Party1Positions";
+    /// <summary>
+    /// The name of the child GameObject in battleScenePrefab that holds Party 2 positions.
+    /// </summary>
+    [SerializeField] string party2PositionName = "Party2Positions";
+
+    [SerializeField] string partyPositionPrefix = "Position";
+
     ImageFader iFader;
         
     /// <summary>
@@ -129,8 +141,8 @@ public class SceneTransitioner : MonoBehaviour {
 
     void SpawnParties(GameObject instantiatedScene, Combatant[] party1, Combatant[] party2)
     {
-        GameObject party1Parent = instantiatedScene.transform.Find("Party1Positions").gameObject;
-        GameObject party2Parent = instantiatedScene.transform.Find("Party2Positions").gameObject;
+        GameObject party1Parent = instantiatedScene.transform.Find(party1PositionName).gameObject;
+        GameObject party2Parent = instantiatedScene.transform.Find(party2PositionName).gameObject;
         Transform[] party1Positions = GetPositions(party1Parent);
         SpawnParty(party1, party1Positions, party1Parent.transform);
 
@@ -140,7 +152,7 @@ public class SceneTransitioner : MonoBehaviour {
     Transform[] GetPositions(GameObject parentObj){
         List<Transform> positions = new List<Transform>();
         foreach (Transform t in parentObj.transform){
-            if(t.gameObject.name.StartsWith("Position")){
+            if(t.gameObject.name.StartsWith(partyPositionPrefix)){
                 positions.Add(t);
             }
         }
