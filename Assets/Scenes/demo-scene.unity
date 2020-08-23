@@ -172,6 +172,9 @@ MonoBehaviour:
   battleScenePrefab: {fileID: 6417138428716365661, guid: 3084262cc0d894e44bd0cd1dd70d9235,
     type: 3}
   scenePosition: {fileID: 289932906}
+  party1PositionName: Party1Positions
+  party2PositionName: Party2Positions
+  partyPositionPrefix: Position
   OnBattleStart:
     m_PersistentCalls:
       m_Calls: []
@@ -208,7 +211,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 640422256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fa40ff7fe458454f895994018dbc056, type: 3}
+  m_Script: {fileID: 11500000, guid: 64dfbbaf628e6a547a69955af38e5681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &976357188

@@ -16,12 +16,12 @@ public class CameraTester : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	    camControl = CameraController.Instance;
+        camControl = Locator.GetCameraController();
 	}
 
     public void ZoomIn(){
         if(!isZoomed && target){
-            originalPosition = CameraController.Instance.GetActiveCamera().transform.position;
+            originalPosition = camControl.GetActiveCamera().transform.position;
             camControl.MoveCamera(target.transform.position + distance);
             isZoomed = true;
         }

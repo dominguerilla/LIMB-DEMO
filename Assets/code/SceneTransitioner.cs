@@ -92,7 +92,8 @@ public class SceneTransitioner : MonoBehaviour {
             
         // Initialize camera
         Camera battleCam = newScene.GetComponentInChildren<Camera>();
-        CameraController.Instance.SetActiveCamera(battleCam);
+        CameraController camControl = Locator.GetCameraController();
+        camControl.SetActiveCamera(battleCam);
 
         // Initialize lights
         // Assumes there's only one light in battleScene, and one return light
@@ -131,8 +132,9 @@ public class SceneTransitioner : MonoBehaviour {
             battleLight.enabled = false;
             battleLight = null;
         }
-            
-        CameraController.Instance.ResetActiveCamera();
+
+        CameraController camControl = Locator.GetCameraController();
+        camControl.ResetActiveCamera();
         Destroy(activeBattleScene);
         activeBattleScene = null;
         EndTransitionStarted.RemoveAllListeners();
