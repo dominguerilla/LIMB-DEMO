@@ -11,10 +11,9 @@ using LIMB;
 public class BattleManager : MonoBehaviour {
 
     public UnityEvent onBattleStart = new UnityEvent();
-
     public UnityEvent onBattleEnd = new UnityEvent();
-
     public UnityEvent onActionExecuted = new UnityEvent();
+    public UnityEvent onGameOver = new UnityEvent();
 
     bool inBattle;
     List<Combatant> combatantTeam1, combatantTeam2;
@@ -65,13 +64,14 @@ public class BattleManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Resets the state of the BattleManager.
+    /// Ends the current battle. Returns false if it's a player loss, true otherwise.
     /// </summary>
-    public void EndBattle(){
+    public bool EndBattle(){
         if(inBattle){
             if (IsGameOver())
             {
                 SetGameOver();
+                return false;
             }
             else
             {
@@ -79,14 +79,14 @@ public class BattleManager : MonoBehaviour {
                 onBattleEnd.Invoke();
                 Debug.Log("Battle ended!");
             }
-
         }
+        return true;
     }
 
     void SetGameOver()
     {
         Debug.Log("GAME OVER!");
-        onBattleEnd.Invoke();
+        onGameOver.Invoke();
     }
 
     bool IsGameOver()

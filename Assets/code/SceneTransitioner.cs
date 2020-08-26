@@ -16,17 +16,6 @@ public class SceneTransitioner : MonoBehaviour {
     public GameObject battleScenePrefab;
     public Transform scenePosition;
 
-    /// <summary>
-    /// The name of the child GameObject in battleScenePrefab that holds Party 1 positions.
-    /// </summary>
-    [SerializeField] string party1PositionName = "Party1Positions";
-    /// <summary>
-    /// The name of the child GameObject in battleScenePrefab that holds Party 2 positions.
-    /// </summary>
-    [SerializeField] string party2PositionName = "Party2Positions";
-
-    [SerializeField] string partyPositionPrefix = "Position";
-
     ImageFader iFader;
         
     /// <summary>
@@ -56,6 +45,7 @@ public class SceneTransitioner : MonoBehaviour {
     public UnityEvent EndTransitionStarted;
 
     GameObject activeBattleScene;
+    BattleScene battleSceneInfo;
     Light battleLight, returnLight;
 
     private void Awake() {
@@ -69,8 +59,19 @@ public class SceneTransitioner : MonoBehaviour {
     {
         iFader = GetComponent<ImageFader>();
         BattleManager bm = Locator.GetBattleManager();
+        GetBattleScene();
         bm.onBattleStart.AddListener(CreateBattleScene);
         bm.onBattleEnd.AddListener(DestroyBattleScene);
+    }
+
+    void GetBattleScene()
+    {
+        battleSceneInfo = battleScenePrefab.GetComponent<BattleScene>();
+        if (!battleSceneInfo)
+        {
+            Debug.LogError("No Battle Scene set on battleScenePrefab!");
+            Destroy(this);
+        }
     }
 
     public void CreateBattleScene()
@@ -87,6 +88,7 @@ public class SceneTransitioner : MonoBehaviour {
     // That way, we don't have to instantiate a new one every battle
     IEnumerator InitializeBattleScene(Combatant[] party1, Combatant[] party2, GameObject battleScene, Camera returnCam = null, Light returnLight = null){
         yield return StartCoroutine(iFader.BattleStartFadeOut());
+        GetBattleScene();
         GameObject newScene = Instantiate(battleScene, scenePosition.position, scenePosition.rotation) as GameObject;
         activeBattleScene = newScene;
             
@@ -106,7 +108,7 @@ public class SceneTransitioner : MonoBehaviour {
             this.returnLight.enabled = false;
         }
 
-        SpawnParties(newScene, party1, party2);
+        SpawnParties(battleSceneInfo, party1, party2);
         BeginTransitionStarted.Invoke();
         yield return StartCoroutine(iFader.BattleStartFadeIn());
         OnBattleStart.Invoke();
@@ -141,25 +143,13 @@ public class SceneTransitioner : MonoBehaviour {
         yield return StartCoroutine(iFader.BattleEndFadeIn());        
     }
 
-    void SpawnParties(GameObject instantiatedScene, Combatant[] party1, Combatant[] party2)
+    void SpawnParties(BattleScene instantiatedScene, Combatant[] party1, Combatant[] party2)
     {
-        GameObject party1Parent = instantiatedScene.transform.Find(party1PositionName).gameObject;
-        GameObject party2Parent = instantiatedScene.transform.Find(party2PositionName).gameObject;
-        Transform[] party1Positions = GetPositions(party1Parent);
-        SpawnParty(party1, party1Positions, party1Parent.transform);
+        (Transform[], Transform[]) partyPositions = instantiatedScene.GetPartyPositions();
+        SpawnParty(party1, partyPositions.Item1);
+        SpawnParty(party2, partyPositions.Item2);
+    }
 
-        Transform[] party2Positions = GetPositions(party2Parent);
-        SpawnParty(party2, party2Positions, party2Parent.transform);
-    }
-    Transform[] GetPositions(GameObject parentObj){
-        List<Transform> positions = new List<Transform>();
-        foreach (Transform t in parentObj.transform){
-            if(t.gameObject.name.StartsWith(partyPositionPrefix)){
-                positions.Add(t);
-            }
-        }
-        return positions.ToArray();
-    }
 
     void SpawnParty(Combatant[] party, Transform[] positions, Transform parent = null){
         for(int i = 0; i < party.Length; i++){

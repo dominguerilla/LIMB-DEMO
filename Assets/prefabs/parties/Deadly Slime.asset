@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Deadly Slime
   m_EditorClassIdentifier: 
   members:
-  - {fileID: 11400000, guid: c453a9c1e66ca5849916dfd0a69662ca, type: 2}
   - {fileID: 11400000, guid: 3b3f539318a30264ea74ccdcaf30382b, type: 2}
-  - {fileID: 11400000, guid: c453a9c1e66ca5849916dfd0a69662ca, type: 2}
+  - {fileID: 11400000, guid: 3b3f539318a30264ea74ccdcaf30382b, type: 2}
+  - {fileID: 11400000, guid: 3b3f539318a30264ea74ccdcaf30382b, type: 2}
