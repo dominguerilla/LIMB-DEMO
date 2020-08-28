@@ -175,7 +175,7 @@ MonoBehaviour:
   OnBattleStart:
     m_PersistentCalls:
       m_Calls: []
-  OnBattleEnd:
+  OnBattleExit:
     m_PersistentCalls:
       m_Calls: []
   BeginTransitionStarted:

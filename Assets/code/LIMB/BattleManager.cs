@@ -13,6 +13,7 @@ public class BattleManager : MonoBehaviour {
     public UnityEvent onBattleStart = new UnityEvent();
     public UnityEvent onBattleEnd = new UnityEvent();
     public UnityEvent onActionExecuted = new UnityEvent();
+    public UnityEvent onBattleExit = new UnityEvent();
     public UnityEvent onGameOver = new UnityEvent();
 
     bool inBattle;
@@ -68,9 +69,11 @@ public class BattleManager : MonoBehaviour {
     /// </summary>
     public bool EndBattle(){
         if(inBattle){
+            inBattle = false;
             if (IsGameOver())
             {
                 SetGameOver();
+                onBattleEnd.Invoke();
                 return false;
             }
             else
@@ -81,6 +84,11 @@ public class BattleManager : MonoBehaviour {
             }
         }
         return true;
+    }
+
+    public void ExitBattle()
+    {
+        onBattleExit.Invoke();
     }
 
     void SetGameOver()

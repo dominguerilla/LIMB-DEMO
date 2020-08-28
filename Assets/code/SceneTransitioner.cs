@@ -28,7 +28,7 @@ public class SceneTransitioner : MonoBehaviour {
     /// Called whenever a battle ends.
     /// </summary>
     [HideInInspector]
-    public UnityEvent OnBattleEnd;
+    public UnityEvent OnBattleExit;
 
     /// <summary>
     /// Called when the scene STARTS to fade in FROM black, during the transition from field to battle.
@@ -50,7 +50,7 @@ public class SceneTransitioner : MonoBehaviour {
 
     private void Awake() {
         OnBattleStart = new UnityEvent();
-        OnBattleEnd = new UnityEvent();
+        OnBattleExit = new UnityEvent();
         BeginTransitionStarted = new UnityEvent();
         EndTransitionStarted = new UnityEvent();
     }
@@ -61,7 +61,7 @@ public class SceneTransitioner : MonoBehaviour {
         BattleManager bm = Locator.GetBattleManager();
         GetBattleScene();
         bm.onBattleStart.AddListener(CreateBattleScene);
-        bm.onBattleEnd.AddListener(DestroyBattleScene);
+        bm.onBattleExit.AddListener(DestroyBattleScene);
     }
 
     void GetBattleScene()
@@ -119,7 +119,7 @@ public class SceneTransitioner : MonoBehaviour {
     }
 
     IEnumerator TakeDownBattleScene(){
-        OnBattleEnd.Invoke();
+        OnBattleExit.Invoke();
         EndTransitionStarted.Invoke();
 
         BeginTransitionStarted.RemoveAllListeners();
