@@ -25,8 +25,6 @@ public class BattleScene : MonoBehaviour
     /// </summary>
     public string characterPositionPrefix = "Position";
 
-    Vector3 centerStagePosition;
-
     private void Awake()
     {
         if (!party1Positions || !party2Positions)
@@ -37,11 +35,6 @@ public class BattleScene : MonoBehaviour
         if (!centerStageLocation)
         {
             Debug.LogError("Center stage position not set!");
-            centerStagePosition = new Vector3();
-        }
-        else
-        {
-            centerStagePosition = centerStageLocation.position;
         }
     }
 
@@ -69,6 +62,6 @@ public class BattleScene : MonoBehaviour
 
     public Vector3 GetCenterStagePosition()
     {
-        return centerStagePosition;
+        return centerStageLocation.position;
     }
 }

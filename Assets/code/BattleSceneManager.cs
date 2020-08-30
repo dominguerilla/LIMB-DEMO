@@ -11,7 +11,7 @@ using LIMB;
 /// Initializes battle 'stage', instantiates the combatant models, destroys stage after battle ends.
 /// </summary>
 [RequireComponent(typeof(ImageFader))]
-public class SceneTransitioner : MonoBehaviour {
+public class BattleSceneManager : MonoBehaviour {
 
     public GameObject battleScenePrefab;
     public Transform scenePosition;
@@ -53,6 +53,7 @@ public class SceneTransitioner : MonoBehaviour {
         OnBattleExit = new UnityEvent();
         BeginTransitionStarted = new UnityEvent();
         EndTransitionStarted = new UnityEvent();
+        Locator.Provide(this);
     }
 
     private void Start()
@@ -116,6 +117,18 @@ public class SceneTransitioner : MonoBehaviour {
 
     public void DestroyBattleScene(){
         StartCoroutine(TakeDownBattleScene());
+    }
+
+    public void StartCameraRotateAroundCenterStage()
+    {
+        GetBattleScene();
+        StartCameraRotateAround(battleSceneInfo.GetCenterStagePosition(), 5.0f);
+    }
+
+    public void StartCameraRotateAround(Vector3 position, float speed)
+    {
+        CameraController camController = Locator.GetCameraController();
+        camController.StartRotateCameraAroundPoint(position, speed);
     }
 
     IEnumerator TakeDownBattleScene(){

@@ -9,6 +9,7 @@ public class Locator
 {
     private static BattleManager battleManager;
     private static CameraController camController;
+    private static BattleSceneManager battleSceneManager;
 
     public static void Provide(BattleManager bm){
         if (battleManager != null) throw new InvalidOperationException("Battle Manager already set!");
@@ -19,6 +20,12 @@ public class Locator
     {
         if (camController != null) throw new InvalidOperationException("Camera Controller already set!");
         camController = camCon;
+    }
+
+    public static void Provide(BattleSceneManager bsm)
+    {
+        if (battleSceneManager != null) throw new InvalidOperationException("Battle Scene Manager already set!");
+        battleSceneManager = bsm;
     }
 
     public static (Combatant[], Combatant[]) GetCombatants(){
@@ -37,5 +44,10 @@ public class Locator
     public static CameraController GetCameraController()
     {
         return camController;
+    }
+
+    public static BattleSceneManager GetBattleSceneManager()
+    {
+        return battleSceneManager;
     }
 }

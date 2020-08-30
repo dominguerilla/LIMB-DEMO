@@ -55,11 +55,6 @@ public class CameraController : MonoBehaviour {
         cameraIsMoving = false;
     }
 
-    public void Test()
-    {
-        StartRotateCameraAroundPoint(new Vector3(7, 7, -15), 5.0f);
-    }
-
     public void StartRotateCameraAroundPoint(Vector3 targetLocation, float camSpeed)
     {
         StartCoroutine(RotateCameraAroundPoint(targetLocation, camSpeed));
