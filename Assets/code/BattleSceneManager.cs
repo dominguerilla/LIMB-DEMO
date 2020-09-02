@@ -45,7 +45,7 @@ public class BattleSceneManager : MonoBehaviour {
     public UnityEvent EndTransitionStarted;
 
     GameObject activeBattleScene;
-    BattleScene battleSceneInfo;
+    BattleScene prefabBattleSceneInfo;
     Light battleLight, returnLight;
 
     private void Awake() {
@@ -67,8 +67,8 @@ public class BattleSceneManager : MonoBehaviour {
 
     void GetBattleScene()
     {
-        battleSceneInfo = battleScenePrefab.GetComponent<BattleScene>();
-        if (!battleSceneInfo)
+        prefabBattleSceneInfo = battleScenePrefab.GetComponent<BattleScene>();
+        if (!prefabBattleSceneInfo)
         {
             Debug.LogError("No Battle Scene set on battleScenePrefab!");
             Destroy(this);
@@ -109,7 +109,7 @@ public class BattleSceneManager : MonoBehaviour {
             this.returnLight.enabled = false;
         }
 
-        SpawnParties(battleSceneInfo, party1, party2);
+        SpawnParties(activeBattleScene.GetComponent<BattleScene>(), party1, party2);
         BeginTransitionStarted.Invoke();
         yield return StartCoroutine(iFader.BattleStartFadeIn());
         OnBattleStart.Invoke();
@@ -122,7 +122,7 @@ public class BattleSceneManager : MonoBehaviour {
     public void StartCameraRotateAroundCenterStage()
     {
         GetBattleScene();
-        StartCameraRotateAround(battleSceneInfo.GetCenterStagePosition(), 5.0f);
+        StartCameraRotateAround(activeBattleScene.GetComponent<BattleScene>().GetCenterStagePosition(), 5.0f);
     }
 
     public void StartCameraRotateAround(Vector3 position, float speed)
@@ -159,8 +159,8 @@ public class BattleSceneManager : MonoBehaviour {
     void SpawnParties(BattleScene instantiatedScene, Combatant[] party1, Combatant[] party2)
     {
         (Transform[], Transform[]) partyPositions = instantiatedScene.GetPartyPositions();
-        SpawnParty(party1, partyPositions.Item1);
-        SpawnParty(party2, partyPositions.Item2);
+        SpawnParty(party1, partyPositions.Item1, instantiatedScene.gameObject.transform);
+        SpawnParty(party2, partyPositions.Item2, instantiatedScene.gameObject.transform);
     }
 
 
