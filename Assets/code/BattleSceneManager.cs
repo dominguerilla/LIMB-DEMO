@@ -131,6 +131,12 @@ public class BattleSceneManager : MonoBehaviour {
         camController.StartRotateCameraAroundPoint(position, speed);
     }
 
+    public void StopCameraRotateAround()
+    {
+        CameraController camController = Locator.GetCameraController();
+        camController.StopRotateCameraAroundPoint();
+    }
+
     IEnumerator TakeDownBattleScene(){
         OnBattleExit.Invoke();
         EndTransitionStarted.Invoke();

@@ -8,6 +8,8 @@ public class CameraController : MonoBehaviour {
     Camera mainCamera, currentCamera;
     bool cameraIsMoving;
 
+    bool _rotateCamera;
+
     private void Awake() {
         mainCamera = Camera.main;
         currentCamera = mainCamera;
@@ -60,14 +62,22 @@ public class CameraController : MonoBehaviour {
         StartCoroutine(RotateCameraAroundPoint(targetLocation, camSpeed));
     }
 
+    public void StopRotateCameraAroundPoint()
+    {
+        _rotateCamera = false;
+    }
+
     IEnumerator RotateCameraAroundPoint(Vector3 targetLocation, float camSpeed)
     {
-        while (true)
+        cameraIsMoving = true;
+        _rotateCamera = true;
+        while (_rotateCamera)
         {
             currentCamera.transform.RotateAround(targetLocation, Vector3.up, Time.deltaTime * camSpeed);
             currentCamera.transform.LookAt(targetLocation);
             yield return null;
         }
+        cameraIsMoving = false;
     }
 }
 
