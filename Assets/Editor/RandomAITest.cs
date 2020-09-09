@@ -12,18 +12,20 @@ namespace Tests
     {
         BattleManager bm;
         RandomCombatantAI ai;
-        Combatant foo;
-        List<Combatant> cp1;
-        List<Combatant> cp2;
+        Combatant sampleCombatant;
+        List<Combatant> party1;
+        List<Combatant> party2;
+        MockSkill mockSkill;
 
         [SetUp]
         public void SetUp()
         {
             bm = new BattleManager();
             ai = new RandomCombatantAI(bm);
-            cp1 = CreateCombatantParty("party 1; member ", 3);
-            cp2 = CreateCombatantParty("party 2; member ", 3);
-            foo = new Combatant("FOO");
+            party1 = CreateCombatantParty("party 1; member ", 3);
+            party2 = CreateCombatantParty("party 2; member ", 3);
+            sampleCombatant = new Combatant("FOO");
+            mockSkill = new MockSkill();
         }
 
         List<Combatant> CreateCombatantParty(string namePrefix, int numMembers)
@@ -39,29 +41,35 @@ namespace Tests
         [Test]
         public void GetRandomAlliedTarget()
         {
-            cp1.Add(foo);
-            bm.StartBattle(cp1, cp2);
-            List<Combatant> targetList = ai.GetRandomTargets(foo, Skill.TARGETABLE.ALLIES, Skill.TARGET_TYPE.SINGLE);
+            party1.Add(sampleCombatant);
+            bm.StartBattle(party1, party2);
+            mockSkill.targetable = Skill.TARGETABLE.ALLIES;
+            mockSkill.targetType = Skill.TARGET_TYPE.SINGLE;
+            List<Combatant> targetList = ai.GetRandomTargets(sampleCombatant, mockSkill);
             Assert.IsTrue(targetList.Count == 1);
-            Assert.IsTrue(bm.GetAlliedTeam(foo).Contains(targetList[0]));
+            Assert.IsTrue(bm.GetAlliedTeam(sampleCombatant).Contains(targetList[0]));
         }
 
         [Test]
         public void GetRandomTargetAllAllies()
         {
-            cp1.Add(foo);
-            bm.StartBattle(cp1, cp2);
-            List<Combatant> targetList = ai.GetRandomTargets(foo, Skill.TARGETABLE.ALLIES, Skill.TARGET_TYPE.GROUP);
+            party1.Add(sampleCombatant);
+            bm.StartBattle(party1, party2);
+            mockSkill.targetable = Skill.TARGETABLE.ALLIES;
+            mockSkill.targetType = Skill.TARGET_TYPE.GROUP;
+            List<Combatant> targetList = ai.GetRandomTargets(sampleCombatant, mockSkill);
             Assert.IsTrue(targetList.Count == 4);
-            Assert.IsTrue(bm.GetAlliedTeam(foo).Contains(targetList[0]));
+            Assert.IsTrue(bm.GetAlliedTeam(sampleCombatant).Contains(targetList[0]));
         }
 
         [Test]
         public void GetRandomTargetAll()
         {
-            cp1.Add(foo);
-            bm.StartBattle(cp1, cp2);
-            List<Combatant> targetList = ai.GetRandomTargets(foo, Skill.TARGETABLE.ALL, Skill.TARGET_TYPE.SINGLE);
+            party1.Add(sampleCombatant);
+            bm.StartBattle(party1, party2);
+            mockSkill.targetable = Skill.TARGETABLE.ALL;
+            mockSkill.targetType = Skill.TARGET_TYPE.SINGLE;
+            List<Combatant> targetList = ai.GetRandomTargets(sampleCombatant, mockSkill);
             Assert.IsTrue(targetList.Count == 1);
             Assert.IsTrue(bm.GetCombatantTeam1().Contains(targetList[0]) || bm.GetCombatantTeam2().Contains(targetList[0]));
         }
@@ -69,29 +77,35 @@ namespace Tests
         [Test]
         public void GetRandomEnemyTarget()
         {
-            cp1.Add(foo);
-            bm.StartBattle(cp1, cp2);
-            List<Combatant> targetList = ai.GetRandomTargets(foo, Skill.TARGETABLE.ENEMIES, Skill.TARGET_TYPE.SINGLE);
+            party1.Add(sampleCombatant);
+            bm.StartBattle(party1, party2);
+            mockSkill.targetable = Skill.TARGETABLE.ENEMIES;
+            mockSkill.targetType = Skill.TARGET_TYPE.SINGLE;
+            List<Combatant> targetList = ai.GetRandomTargets(sampleCombatant, mockSkill);
             Assert.IsTrue(targetList.Count == 1);
-            Assert.IsTrue(bm.GetEnemyTeam(foo).Contains(targetList[0]));
+            Assert.IsTrue(bm.GetEnemyTeam(sampleCombatant).Contains(targetList[0]));
         }
 
         [Test]
         public void GetRandomEnemyTeam()
         {
-            cp1.Add(foo);
-            bm.StartBattle(cp1, cp2);
-            List<Combatant> targetList = ai.GetRandomTargets(foo, Skill.TARGETABLE.ENEMIES, Skill.TARGET_TYPE.GROUP);
+            party1.Add(sampleCombatant);
+            bm.StartBattle(party1, party2);
+            mockSkill.targetable = Skill.TARGETABLE.ENEMIES;
+            mockSkill.targetType = Skill.TARGET_TYPE.GROUP;
+            List<Combatant> targetList = ai.GetRandomTargets(sampleCombatant, mockSkill);
             Assert.IsTrue(targetList.Count == 3);
-            Assert.IsTrue(bm.GetEnemyTeam(foo).Contains(targetList[0]));
+            Assert.IsTrue(bm.GetEnemyTeam(sampleCombatant).Contains(targetList[0]));
         }
 
         [Test]
         public void GetRandomAllCombatants()
         {
-            cp1.Add(foo);
-            bm.StartBattle(cp1, cp2);
-            List<Combatant> targetList = ai.GetRandomTargets(foo, Skill.TARGETABLE.ALL, Skill.TARGET_TYPE.GROUP);
+            party1.Add(sampleCombatant);
+            bm.StartBattle(party1, party2);
+            mockSkill.targetable = Skill.TARGETABLE.ALL;
+            mockSkill.targetType = Skill.TARGET_TYPE.GROUP;
+            List<Combatant> targetList = ai.GetRandomTargets(sampleCombatant, mockSkill);
             Assert.IsTrue(targetList.Count == 7);
         }
 
@@ -100,8 +114,10 @@ namespace Tests
         {
             try
             {
-                bm.StartBattle(cp1, cp2);
-                List<Combatant> targetList = ai.GetRandomTargets(foo, Skill.TARGETABLE.ALL, Skill.TARGET_TYPE.SINGLE);
+                bm.StartBattle(party1, party2);
+                mockSkill.targetable = Skill.TARGETABLE.ALL;
+                mockSkill.targetType = Skill.TARGET_TYPE.SINGLE;
+                List<Combatant> targetList = ai.GetRandomTargets(sampleCombatant, mockSkill);
                 Assert.Fail();
             }
             catch (System.InvalidOperationException)
@@ -119,8 +135,10 @@ namespace Tests
         {
             try
             {
-                bm.StartBattle(cp1, cp2);
-                List<Combatant> targetList = ai.GetRandomTargets(foo, Skill.TARGETABLE.ALLIES, Skill.TARGET_TYPE.SINGLE);
+                bm.StartBattle(party1, party2);
+                mockSkill.targetable = Skill.TARGETABLE.ALLIES;
+                mockSkill.targetType = Skill.TARGET_TYPE.SINGLE;
+                List<Combatant> targetList = ai.GetRandomTargets(sampleCombatant, mockSkill);
                 Assert.Fail();
             }
             catch (System.InvalidOperationException)
@@ -138,8 +156,10 @@ namespace Tests
         {
             try
             {
-                bm.StartBattle(cp1, cp2);
-                List<Combatant> targetList = ai.GetRandomTargets(foo, Skill.TARGETABLE.ENEMIES, Skill.TARGET_TYPE.SINGLE);
+                bm.StartBattle(party1, party2);
+                mockSkill.targetable = Skill.TARGETABLE.ENEMIES;
+                mockSkill.targetType = Skill.TARGET_TYPE.SINGLE;
+                List<Combatant> targetList = ai.GetRandomTargets(sampleCombatant, mockSkill);
                 Assert.Fail();
             }
             catch (System.InvalidOperationException)
@@ -150,6 +170,19 @@ namespace Tests
             {
                 Assert.Fail();
             }
+        }
+
+        [Test]
+        public void GetRandomTargetFailureCannotTarget()
+        {
+            MockSkill mockSkill = new MockSkill();
+            mockSkill.canTarget = (actor, target, actorParty, enemyParty ) => { return false; };
+            sampleCombatant.AddSkill(mockSkill);
+            party1.Add(sampleCombatant);
+            bm.StartBattle(party1, party2);
+
+            List<Combatant> targets = ai.GetRandomTargets(sampleCombatant, mockSkill);
+            Assert.IsNull(targets);
         }
     }
 }

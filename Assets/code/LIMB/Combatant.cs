@@ -28,6 +28,7 @@ namespace LIMB {
         CombatantAnimator anim;
         bool isAlive = true;
         float currentHealth;
+        List<Skill> skills;
 
         /// <summary>
         /// Create a new Combatant using the supplied Combatant Data.
@@ -37,6 +38,7 @@ namespace LIMB {
         public Combatant(CombatantData combatantData){
             this.combatantData = combatantData;
             this.currentHealth = combatantData.GetStat(Stats.STAT.HP);
+            this.skills = this.combatantData.GetSkills();
         }
 
         /// <summary>
@@ -46,6 +48,7 @@ namespace LIMB {
             this.combatantData = ScriptableObject.CreateInstance<CombatantData>();
             this.combatantData.InitializeData(name, new List<StatValue>(), new List<Limb>());
             this.currentHealth = 100;
+            this.skills = new List<Skill>();
         }
 
 
@@ -192,7 +195,12 @@ namespace LIMB {
         }
 
         public List<Skill> GetSkills(){
-            return this.combatantData.GetSkills();
+            return this.skills;
+        }
+
+        public void AddSkill(Skill skill)
+        {
+            this.skills.Add(skill);
         }
 
         public string GetName(){

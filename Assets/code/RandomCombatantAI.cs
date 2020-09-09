@@ -23,15 +23,9 @@ public class RandomCombatantAI
 
     public List<Combatant> GetRandomTargets(Combatant combatant, Skill skill)
     {
-        return GetRandomTargets(combatant, skill.targetable, skill.targetType);
-    }
-
-    public List<Combatant> GetRandomTargets(Combatant combatant, Skill.TARGETABLE targetable, Skill.TARGET_TYPE targetType)
-    {
-
         List<Combatant> team;
 
-        switch (targetable)
+        switch (skill.targetable)
         {
             case Skill.TARGETABLE.ALLIES:
                 team = bm.GetAlliedTeam(combatant);
@@ -51,8 +45,9 @@ public class RandomCombatantAI
                 break;
         }
 
-        if (targetType == Skill.TARGET_TYPE.GROUP)
+        if (skill.targetType == Skill.TARGET_TYPE.GROUP)
         {
+            
             return team;
         }
         else
@@ -60,9 +55,9 @@ public class RandomCombatantAI
             System.Random rand = new System.Random();
             Combatant comb = team[rand.Next(team.Count)];
             return new List<Combatant>() { comb };
-        }
-
+        };
     }
+
 
     public LIMB.Action CreateRandomAction(Combatant combatant)
     {
