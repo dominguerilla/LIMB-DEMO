@@ -45,7 +45,7 @@ namespace Tests
             bm.StartBattle(party1, party2);
             mockSkill.targetable = Skill.TARGETABLE.ALLIES;
             mockSkill.targetType = Skill.TARGET_TYPE.SINGLE;
-            List<Combatant> targetList = ai.GetRandomTargets(sampleCombatant, mockSkill);
+            List <Combatant> targetList = ai.GetRandomTargets(sampleCombatant, mockSkill);
             Assert.IsTrue(targetList.Count == 1);
             Assert.IsTrue(bm.GetAlliedTeam(sampleCombatant).Contains(targetList[0]));
         }

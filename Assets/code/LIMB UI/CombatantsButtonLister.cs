@@ -61,7 +61,7 @@ public class CombatantsButtonLister : MonoBehaviour
             possibleTargets = new List<Combatant>(alliedParty.Concat<Combatant>(otherParty));
         }
 
-        possibleTargets.RemoveAll(combatant => !skill.CanTarget(user, combatant));
+        possibleTargets.RemoveAll(combatant => !skill.CanTarget(user, combatant, alliedParty, otherParty));
 
         int targetNum = Mathf.Min(MAX_BUTTON_NUM, possibleTargets.Count);
         
