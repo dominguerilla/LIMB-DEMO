@@ -23,49 +23,46 @@ public class RandomCombatantAI
 
     public List<Combatant> GetRandomTargets(Combatant combatant, Skill skill)
     {
-        IEnumerable<Combatant> team, otherTeam;
+        //TODO: The combatant passed in might not be in combat.
+        if (!InCombat(combatant)) throw new System.InvalidOperationException("Combatant is not in combat!");
+        IEnumerable<Combatant> targetTeam;
 
         switch (skill.targetable)
         {
             case Skill.TARGETABLE.ALLIES:
+                targetTeam = bm.GetAlliedTeam(combatant);
+                break;
             case Skill.TARGETABLE.ENEMIES:
-                team = bm.GetAlliedTeam(combatant);
-                otherTeam = bm.GetEnemyTeam(combatant);
-                if (team == null) throw new System.InvalidOperationException("Combatant is not in battle!");
+                targetTeam = bm.GetEnemyTeam(combatant);
                 break;
             case Skill.TARGETABLE.ALL:
-                // TODO team 1 or 2 might be null here
                 IEnumerable<Combatant> combined = bm.GetCombatantTeam1().Concat(bm.GetCombatantTeam2());
-                team = combined.ToList<Combatant>();
-                otherTeam = null;
-                if (!team.Contains(combatant)) throw new System.InvalidOperationException("Combatant is not in battle!");
+                targetTeam = combined.ToList<Combatant>();
                 break;
             default:
-                team = null;
-                otherTeam = null;
                 throw new Exception("Invalid Targetable!");
         }
-        Combatant[] alliedTeam = team.ToArray();
-        Combatant[] enemyTeam = null;
-        if (otherTeam != null) enemyTeam = otherTeam.ToArray();
+
+        Combatant[] alliedTeam = bm.GetAlliedTeam(combatant).ToArray();
+        Combatant[] enemyTeam = bm.GetEnemyTeam(combatant).ToArray();
 
         if (skill.targetType == Skill.TARGET_TYPE.GROUP)
         {
-            foreach (Combatant c in team)
+            foreach (Combatant c in targetTeam)
             {
                 if (skill.CanTarget(combatant, c, actorParty:alliedTeam, enemyParty:enemyTeam))
                 {
-                    return team.ToList();
+                    return targetTeam.ToList();
                 }
             }
             return null;
         }
         else
         {
-            team = team.Where(c => skill.CanTarget(combatant, c, actorParty: alliedTeam, enemyParty: enemyTeam));
-            if (team == null) return null;
+            targetTeam = targetTeam.Where(c => skill.CanTarget(combatant, c, actorParty: alliedTeam, enemyParty: enemyTeam));
+            if (targetTeam == null) return null;
             System.Random rand = new System.Random();
-            Combatant comb = team.ElementAt<Combatant>(rand.Next(0, team.Count()));
+            Combatant comb = targetTeam.ElementAt<Combatant>(rand.Next(0, targetTeam.Count()));
             return new List<Combatant>() { comb };
         };
     }
@@ -76,5 +73,10 @@ public class RandomCombatantAI
         Skill skill = GetRandomCombatantSkill(combatant);
         List<Combatant> targets = GetRandomTargets(combatant, skill);
         return new LIMB.Action(combatant, skill, targets.ToArray());
+    }
+
+    bool InCombat(Combatant combatant)
+    {
+        return bm.GetCombatantTeam1().Contains(combatant) || bm.GetCombatantTeam2().Contains(combatant);
     }
 }
