@@ -60,7 +60,7 @@ public class RandomCombatantAI
         else
         {
             targetTeam = targetTeam.Where(c => skill.CanTarget(combatant, c, actorParty: alliedTeam, enemyParty: enemyTeam));
-            if (targetTeam == null) return null;
+            if (targetTeam.Count<Combatant>() == 0) return null;
             System.Random rand = new System.Random();
             Combatant comb = targetTeam.ElementAt<Combatant>(rand.Next(0, targetTeam.Count()));
             return new List<Combatant>() { comb };
