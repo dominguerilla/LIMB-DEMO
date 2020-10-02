@@ -58,6 +58,8 @@ Each adventurer that is created must have:
 3. RED limbs are typically limbs that can wield weapons/are weaponized. Damage could result in decreased attack power.
 4. GREEN limbs are typically mobility-related. Damage can result in reduced speed or evasion.
 
+TODO: Imagine choosing a race--could have different sets/colors for limbs.
+
 ## Skills
 
 - HEAVY BLOW - BLUNT damage on target. Chance to STUN on purple parts.

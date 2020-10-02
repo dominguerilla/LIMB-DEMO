@@ -84,6 +84,49 @@ In a Battle between the adventurer party and a party of goblins, there are 3 Fig
 
 Each Fight must be completed to complete the Event.
 
+#### Combat
+All members of the party that triggers a Battle Event are placed into Combat with the enemies drawn from the Encounter table.
+The party must defeat their enemies to complete the Event.
+If the party is defeated, that members of that party are incapacitated and cannot continue exploring the Dungeon.
+
+In Combat, a party and their enemies will take turns performing Actions during Rounds to defeat their opponents.
+Each combatant performs one Action during each round.
+To start Combat, the turn order must first be established.
+
+TODO: How to determine turn order
+
+
+Once turn order is established, the first combatant in the turn order will make an Action.
+After that, the next combatant in the order will take an Action.
+When reaching the final combatant, if the fight can still continue, the first combatant will go again, and another Round will commence.
+
+##### Performing an Action
+A combatant may use a Skill or Item during their turn.
+
+'''
+TO CONSIDER
+
+How should Skills be used?
+Should each Skill have a limited number of uses in a Fight/Dungeon?
+Should there be some kind of HP/MP cost system?
+'''
+
+Damage has a TYPE and a target limb.
+Certain Skills have bonus effects that take place when dealing damage to certain parts.
+Certain parts have weaknesses that trigger when certain TYPEs of damage occur to it.
+If a Skill with a bonus effect hits a part with a weakness to that Skill's TYPE, both the bonus effect and weakness may trigger.
+If the bonus effect and weakness conflict with each other, the bonus effect takes priority.
+
+'''
+TO CONSIDER
+
+How should damage be calculated?
+Should each combatant be able to DEFEND a certain part?
+	- maybe each combatant can DEFEND one attack per Round?
+	- maybe there are skills that let combatants continue DEFENDing?
+	- DEFEND would be choosing a limb to protect, reducing damage and preventing weaknesses from activating.
+'''
+
 ##### Difficulty
 The number of Fights in a Battle and the maximum number of enemies in each Fight is determined by the Battle's difficulty and the number of adventurers in the party.
 
