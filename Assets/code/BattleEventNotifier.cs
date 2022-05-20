@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using Bolt;
+using Unity.VisualScripting;
 
 /// <summary>
 /// Triggers BOLT CustomEvents based on UnityEvents called from BattleManager.

@@ -4,7 +4,7 @@
 __pycache__
 /dist/
 *.blend1.meta
-
+.vscode/
 ## Bolt
 
 # This is the subfolder needed only for installation from the Asset Store.

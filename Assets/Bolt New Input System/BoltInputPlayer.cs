@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using Bolt;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(FlowMachine))]
 public class BoltInputPlayer : MonoBehaviour
 {
     [SerializeField] private InputActionAsset inputActionAsset;

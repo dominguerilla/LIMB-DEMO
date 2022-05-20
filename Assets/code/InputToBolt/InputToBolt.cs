@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using Bolt;
+using Unity.VisualScripting;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
